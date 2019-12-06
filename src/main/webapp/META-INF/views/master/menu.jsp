@@ -88,6 +88,8 @@
 			<acme:menu-suboption code="master.menu.user-account.job.list" action="/authenticated/job/list" />
 			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.user-account.message-thread.list" action="/authenticated/message-thread/list-mine" />
+			
+		
  		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.worker" access="hasRole('Worker')">
@@ -108,6 +110,18 @@
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update" />
+			
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.user-account.become-employer" action="/authenticated/employer/create" />
+					
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.user-account.update-employer" action="/authenticated/employer/update" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.user-account.become-worker" action="/authenticated/worker/create" />
+	
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.user-account.update-worker" action="/authenticated/worker/update" />
+			
 			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create"
 				access="!hasRole('Provider')" />
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update"
