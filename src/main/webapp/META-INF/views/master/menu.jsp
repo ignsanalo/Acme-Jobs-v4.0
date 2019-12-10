@@ -112,6 +112,8 @@
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update" />
 			
 			<acme:menu-separator />
+				<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" />
+			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.user-account.become-employer" action="/authenticated/employer/create" />
 					
 			<acme:menu-separator />

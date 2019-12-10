@@ -84,6 +84,10 @@ master.menu.auditor.job.list2= Listar trabajos sin auditoría
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.become-employer = Hazte empleado
+master.menu.user-account.update-employer = Actualizar datos de empleado
+master.menu.user-account.become-worker = Hazte trabajador
+master.menu.user-account.update-worker = Actualizar datos de trabajador
 master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
