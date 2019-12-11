@@ -64,8 +64,6 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		errors.state(request, condition, attributeName, code, arguments);
-
 	}
 
 	@Override
