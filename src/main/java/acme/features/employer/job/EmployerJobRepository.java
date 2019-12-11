@@ -18,4 +18,10 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select j from Job j where j.employer.id = ?1")
 	Collection<Job> findManyByEmployerId(int employerId);
 
+	@Query("select sum(d.percentage) from Duty d where d.job.id = ?1")
+	Double sumOfPercentagesDuty(int id);
+
+	@Query("select sum(a) from Application a where a.job.id = ?1")
+	Double sumOfApplication(int id);
+
 }

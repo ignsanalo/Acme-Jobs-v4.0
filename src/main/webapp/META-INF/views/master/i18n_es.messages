@@ -98,6 +98,12 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.worker = Trabajador
 master.menu.worker.application.list = Listar aplicaciones
 
+# master.menu.employer ####################################################
+
+master.menu.employer = Empleador
+master.menu.employer.job.list = Listar trabajos
+master.menu.employer.job.create = Crear trabajo
+
 ﻿# master.footer ###############################################################
 
 
