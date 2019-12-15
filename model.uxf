@@ -434,8 +434,8 @@ has v</panel_attributes>
     </coordinates>
     <panel_attributes>Configuration
 --
-+ spamWords: String
-+ spamThreshold : Double</panel_attributes>
++ spamWords: String {NotBlank}
++ spamThreshold : Double {NotNull}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
