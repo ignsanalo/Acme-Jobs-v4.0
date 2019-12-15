@@ -16,9 +16,12 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="authenticated.auditor.form.label.firm" path="firm"/>
-	<acme:form-textbox code="authenticated.auditor.form.label.responsabilityStatement" path="ResponsabilityStatement"/>
-	
-	<acme:form-submit test="${command == 'create'}" code="authenticated.auditor.form.button.request" action="/administrator/auditor/create"/>
-	<acme:form-return code="authenticated.auditor.form.button.return"/>
+	<acme:form-textbox code="administrator.auditor-request.form.label.firm" path="firm" readonly="true" />
+	<acme:form-textbox code="administrator.auditor-request.form.label.statement" path="statement" readonly="true" />
+	<acme:form-textbox code="administrator.auditor-request.form.label.status" path="status" readonly="true" />
+
+	<acme:form-submit test="${command == 'show'}" code="administrator.auditor-request.form.button.create"
+		action="/administrator/auditor-request/update" />
+
+	<acme:form-return code="administrator.auditor-request.form.button.return" />
 </acme:form>

@@ -58,6 +58,8 @@ master.menu.administrator.companyrecord.create = Crear registro de compañias
 master.menu.administrator.configuration = Parámetros de personalización
 master.menu.administrator.challenge.list = Listar desafíos
 master.menu.administrator.challenge.create = Crear desafíos
+master.menu.administrator.auditor-request.list = Listar solicitudes de auditores
+
 
 
 # master.menu.provider ########################################################
@@ -92,6 +94,7 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-auditor = Hazte auditor
 
 # master.menu.worker ####################################################
 
