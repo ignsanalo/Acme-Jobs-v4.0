@@ -60,13 +60,15 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		Principal principal;
 		int userAccountId;
+		int jobId;
 
 		principal = request.getPrincipal();
-		userAccountId = principal.getAccountId();
+		userAccountId = principal.getActiveRoleId();
+		jobId = request.getModel().getInteger("id");
 
 		worker = this.repository.findApplicationWorkerById(userAccountId);
 
-		job = this.repository.findApplicationJobById(userAccountId);
+		job = this.repository.findApplicationJobById(jobId);
 
 		Application result = new Application();
 
@@ -81,6 +83,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
 	}
 
 	@Override
