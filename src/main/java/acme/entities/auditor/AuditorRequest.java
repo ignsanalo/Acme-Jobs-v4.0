@@ -33,7 +33,7 @@ public class AuditorRequest extends DomainEntity {
 	private Status				status;
 
 	@NotNull
-	@OneToOne
+	@OneToOne(optional = false)
 	@Valid
 	private UserAccount			user;
 
