@@ -24,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "moment")
+	@Index(columnList = "finalMode")
 })
 public class Auditrecord extends DomainEntity {
 
@@ -39,11 +39,13 @@ public class Auditrecord extends DomainEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
+	@NotNull
 	private Date				moment;
 
 	@NotBlank
 	private String				body;
 
+	@NotNull
 	private boolean				finalMode;
 
 	// Relationships ----------------------------------------------------------------------

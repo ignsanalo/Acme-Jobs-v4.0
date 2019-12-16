@@ -24,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "ticker")
+	@Index(columnList = "deadline")
 })
 public class Requests extends DomainEntity {
 
@@ -37,6 +37,7 @@ public class Requests extends DomainEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
+	@NotNull
 	private Date				moment;
 
 	@Temporal(TemporalType.TIMESTAMP)
