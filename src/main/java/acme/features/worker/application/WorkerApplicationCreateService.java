@@ -1,17 +1,19 @@
 
 package acme.features.worker.application;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.components.Response;
+import acme.framework.entities.Principal;
+import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -44,20 +46,32 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "worker", "job");
+		request.unbind(entity, model, "reference", "status", "statement", "skills", "qualifications");
 
-		if (request.isMethod(HttpMethod.GET)) {
-			model.setAttribute("accept", "false");
-		} else {
-			request.transfer(model, "accept");
-		}
 	}
 
 	@Override
 	public Application instantiate(final Request<Application> request) {
-		Application result;
+		assert request != null;
 
-		result = new Application();
+		Worker worker;
+
+		Job job;
+
+		Principal principal;
+		int userAccountId;
+
+		principal = request.getPrincipal();
+		userAccountId = principal.getAccountId();
+
+		worker = this.repository.findApplicationWorkerById(userAccountId);
+
+		job = this.repository.findApplicationJobById(userAccountId);
+
+		Application result = new Application();
+
+		result.setWorker(worker);
+		result.setJob(job);
 
 		return result;
 	}
@@ -67,17 +81,24 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
 	}
 
 	@Override
 	public void create(final Request<Application> request, final Application entity) {
-		Date moment;
+		assert request != null;
+		assert entity != null;
 
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setMoment(moment);
 		this.repository.save(entity);
+	}
 
+	@Override
+	public void onSuccess(final Request<Application> request, final Response<Application> response) {
+		assert request != null;
+		assert response != null;
+
+		if (request.isMethod(HttpMethod.POST)) {
+			PrincipalHelper.handleUpdate();
+		}
 	}
 
 }
