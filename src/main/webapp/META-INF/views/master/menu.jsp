@@ -70,6 +70,7 @@
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.job.list" action="/auditor/job/list-mine" />
 			<acme:menu-suboption code="master.menu.auditor.job.list2" action="/auditor/job/list-not-mine" />
+			<acme:menu-suboption code="master.menu.auditor.job.list3" action="/auditor/job/list" />
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">

@@ -28,7 +28,7 @@ public class AuditorAuditrecordShowService implements AbstractShowService<Audito
 		Auditrecord auditrecord;
 
 		auditrecordID = request.getModel().getInteger("id");
-		auditrecord = this.repository.findOneAuditById(auditrecordID);
+		auditrecord = this.repository.findOneAuditrecordById(auditrecordID);
 
 		result = auditrecord.isFinalMode();
 
@@ -54,7 +54,7 @@ public class AuditorAuditrecordShowService implements AbstractShowService<Audito
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneAuditById(id);
+		result = this.repository.findOneAuditrecordById(id);
 
 		return result;
 
