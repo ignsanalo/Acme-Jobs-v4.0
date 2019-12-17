@@ -87,11 +87,6 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		if (!errors.hasErrors("reference")) {
-			Boolean referenceFormat = entity.getReference().matches("^[E]{1}[M]{1}[P]{1}[0-9]{1}-[J]{1}[O]{1}[B]{1}[0-9]{1}:[W]{1}[O]{1}[R]{1}[0-9]{1}$");
-			errors.state(request, referenceFormat, "reference", "worker.application.error.referenceFormat");
-		}
-
 	}
 
 	@Override
