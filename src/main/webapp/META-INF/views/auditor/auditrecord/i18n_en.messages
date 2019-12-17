@@ -5,4 +5,6 @@ auditor.auditrecord.form.label.status= Final Mode
 
 auditor.auditrecord.list.label.title = Title
 
+auditor.auditrecord.form.button.create=Create
+
 auditor.job.form.button.return = return
