@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.announcements.Announcement;
 import acme.framework.components.Errors;
+import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.components.Response;
 import acme.framework.entities.Administrator;
+import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -73,6 +76,16 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
 		this.repository.save(entity);
+	}
+
+	@Override
+	public void onSuccess(final Request<Announcement> request, final Response<Announcement> response) {
+		assert request != null;
+		assert response != null;
+
+		if (request.isMethod(HttpMethod.POST)) {
+			PrincipalHelper.handleUpdate();
+		}
 	}
 
 }

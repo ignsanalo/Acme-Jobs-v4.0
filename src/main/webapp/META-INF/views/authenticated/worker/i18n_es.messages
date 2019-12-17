@@ -1,4 +1,4 @@
-# i18n_en.messages
+# i18n_es.messages
 #
 # Copyright (c) 2019 Rafael Corchuelo.
 #
@@ -11,6 +11,7 @@
 
 authenticated.worker.form.label.qualifications = Calificaciones
 authenticated.worker.form.label.skills = Habilidades
+
 
 authenticated.worker.form.button.create = Registrar
 authenticated.worker.form.button.update = Actualizar

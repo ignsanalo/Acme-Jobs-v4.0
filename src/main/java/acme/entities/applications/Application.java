@@ -50,6 +50,7 @@ public class Application extends DomainEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
+	@NotNull
 	private Date	moment;
 
 	@NotBlank

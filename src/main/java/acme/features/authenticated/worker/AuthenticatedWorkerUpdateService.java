@@ -1,3 +1,14 @@
+/*
+ * AuthenticatedWorkerUpdateService.java
+ *
+ * Copyright (c) 2019 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.authenticated.worker;
 
@@ -18,9 +29,14 @@ import acme.framework.services.AbstractUpdateService;
 @Service
 public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<Authenticated, Worker> {
 
+
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
 	private AuthenticatedWorkerRepository repository;
 
+
+	// AbstractUpdateService<Authenticated, Worker> interface ---------------
 
 	@Override
 	public boolean authorise(final Request<Worker> request) {
@@ -52,6 +68,7 @@ public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<A
 	@Override
 	public Worker findOne(final Request<Worker> request) {
 		assert request != null;
+    
 		Worker result;
 		Principal principal;
 		int userAccountId;
@@ -69,7 +86,6 @@ public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<A
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
 	}
 
 	@Override
@@ -78,7 +94,6 @@ public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<A
 		assert entity != null;
 
 		this.repository.save(entity);
-
 	}
 
 	@Override

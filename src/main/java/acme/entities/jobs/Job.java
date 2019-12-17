@@ -27,7 +27,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "reference")
+	@Index(columnList = "deadline")
 })
 public class Job extends DomainEntity {
 
@@ -59,6 +59,7 @@ public class Job extends DomainEntity {
 	@URL
 	private String				moreInfo;
 
+	@NotNull
 	private boolean				finalMode;
 
 	// Relationships ----------------------------------------------------------------------
