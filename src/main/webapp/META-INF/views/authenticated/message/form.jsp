@@ -17,9 +17,20 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.message.form.label.title" path="title" />
-	<acme:form-moment code="authenticated.message.form.label.moment" path="moment" />
+	<jstl:if test="${command != 'create'}">
+		<acme:form-moment code="authenticated.message.form.label.moment" path="moment" />
+	</jstl:if>
 	<acme:form-textbox code="authenticated.message.form.label.tags" path="tags" />
 	<acme:form-textbox code="authenticated.message.form.label.body" path="body" />
+
+	<jstl:if test="${command == 'create'}">
+		<acme:form-checkbox code="authenticated.message.label.accept" path="accept" />
+		<%-- <acme:form-checkbox code="authenticated.message.form.label.accept" path="accept"/> --%>
+	</jstl:if>
+
+	<acme:form-submit test="${command == 'create'}" code="authenticated.message.form.button.create"
+		action="/authenticated/message/create" />
+
 	<acme:form-return code="authenticated.message.form.button.return" />
 
 </acme:form>

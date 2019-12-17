@@ -20,3 +20,6 @@
 	<acme:list-column code="authenticated.message.list.label.moment" path="moment" width="30%" />
 	<acme:list-column code="authenticated.message.list.label.tags" path="tags" width="20%" />
 </acme:list>
+
+<acme:form-submit test="${command == 'create'}" code="authenticated.message.form.button.create"
+		action="/authenticated/message/create" />
