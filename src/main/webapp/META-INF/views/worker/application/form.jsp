@@ -17,11 +17,6 @@
 
 <acme:form>
 	<acme:form-textbox code="worker.application.form.label.reference" path="reference" />
-	<acme:form-select code="worker.application.form.label.status" path="status">
-		<acme:form-option code="worker.application.form.label.status.pending" value="PENDING" />
-		<acme:form-option code="worker.application.form.label.status.accepted" value="ACCEPTED" />
-		<acme:form-option code="worker.application.form.label.status.rejected" value="REJECTED" />
-	</acme:form-select>
 	<acme:form-textbox code="worker.application.form.label.statement" path="statement" />
 	<acme:form-textbox code="worker.application.form.label.skills" path="skills" />
 	<acme:form-textbox code="worker.application.form.label.qualifications" path="qualifications" />

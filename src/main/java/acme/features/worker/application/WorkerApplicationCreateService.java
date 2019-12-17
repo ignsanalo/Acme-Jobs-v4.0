@@ -1,6 +1,8 @@
 
 package acme.features.worker.application;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -74,6 +76,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		result.setWorker(worker);
 		result.setJob(job);
+		result.setStatus("PENDING");
 
 		return result;
 	}
@@ -84,6 +87,11 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
+		if (!errors.hasErrors("reference")) {
+			Boolean referenceFormat = entity.getReference().matches("^[E]{1}[M]{1}[P]{1}[0-9]{1}-[J]{1}[O]{1}[B]{1}[0-9]{1}:[W]{1}[O]{1}[R]{1}[0-9]{1}$");
+			errors.state(request, referenceFormat, "reference", "worker.application.error.referenceFormat");
+		}
+
 	}
 
 	@Override
@@ -91,7 +99,12 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 
+		Date moment;
+
+		moment = new Date(System.currentTimeMillis() - 1);
+		entity.setMoment(moment);
 		this.repository.save(entity);
+
 	}
 
 	@Override
