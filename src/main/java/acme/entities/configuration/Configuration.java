@@ -30,4 +30,27 @@ public class Configuration extends DomainEntity {
 	@Digits(integer = 1, fraction = 2)
 	private Double				spamThreshold;
 
+
+	public Boolean isSpam(final String s) {
+		Boolean res = false;
+
+		Double contador = 0.00;
+
+		String[] palabrasMalas = this.spamWords.split(",");
+		for (int i = 0; i > palabrasMalas.length; i++) {
+			if (s.contains(palabrasMalas[i])) {
+				contador++;
+			}
+		}
+		int tam = s.length();
+
+		Double porcen = contador / tam * 100;
+
+		if (porcen > this.spamThreshold) {
+			res = true;
+		}
+
+		return res;
+	}
+
 }

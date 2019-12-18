@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.challenges.Challenge;
+import acme.entities.configuration.Configuration;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -75,6 +76,14 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 			errors.state(request, orderReward, "rewardBronze", "administrator.challenge.error.bronzeReward");
 			errors.state(request, orderReward, "rewardSilver", "administrator.challenge.error.silverReward");
 
+		}
+
+		Configuration config;
+		config = this.repository.findManyConfiguration().stream().findFirst().get();
+
+		if (!errors.hasErrors("description")) {
+			boolean isSpam = !config.isSpam(entity.getDescription());
+			errors.state(request, isSpam, "description", "administrator.challenge.error.spam");
 		}
 
 	}
