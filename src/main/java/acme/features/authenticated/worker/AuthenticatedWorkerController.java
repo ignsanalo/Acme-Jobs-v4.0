@@ -27,6 +27,7 @@ import acme.framework.entities.Authenticated;
 @RequestMapping("/authenticated/worker/")
 public class AuthenticatedWorkerController extends AbstractController<Authenticated, Worker> {
 
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -34,6 +35,7 @@ public class AuthenticatedWorkerController extends AbstractController<Authentica
 
 	@Autowired
 	private AuthenticatedWorkerUpdateService	updateService;
+
 
 
 	// Constructors -----------------------------------------------------------

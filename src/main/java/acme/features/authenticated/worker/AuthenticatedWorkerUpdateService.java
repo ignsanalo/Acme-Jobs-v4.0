@@ -29,6 +29,7 @@ import acme.framework.services.AbstractUpdateService;
 @Service
 public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<Authenticated, Worker> {
 
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -51,6 +52,7 @@ public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<A
 		assert errors != null;
 
 		request.bind(entity, errors);
+
 	}
 
 	@Override
@@ -60,12 +62,13 @@ public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<A
 		assert model != null;
 
 		request.unbind(entity, model, "qualifications", "skills");
+
 	}
 
 	@Override
 	public Worker findOne(final Request<Worker> request) {
 		assert request != null;
-
+    
 		Worker result;
 		Principal principal;
 		int userAccountId;
