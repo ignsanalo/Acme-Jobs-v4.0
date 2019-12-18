@@ -36,7 +36,6 @@ public class Offer extends DomainEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	@NotNull
 	private Date				moment;
 
 	@Temporal(TemporalType.TIMESTAMP)

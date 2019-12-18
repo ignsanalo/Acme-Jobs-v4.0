@@ -318,6 +318,7 @@
 		<property name="auditor" ref="auditor1Auditor" />
 		<property name="job" ref="job1" />
 		
+		
 	</bean>
 	<bean name="auditrecord2" class="acme.entities.auditrecords.Auditrecord">
 		<property name="title" value="auditR2" />
@@ -338,6 +339,7 @@
 		<property name="statement" value="This is a short statement" />
 		<property name="skills" value="Easy to use" />
 		<property name="qualifications" value="Good application" />
+		<property name="mandatoryJustification" value="" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job1" />
 	</bean>
@@ -349,6 +351,7 @@
 		<property name="statement" value="This is a short statement" />
 		<property name="skills" value="Easy to use" />
 		<property name="qualifications" value="Good application" />
+		<property name="mandatoryJustification" value="" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job1" />		
 	</bean>
@@ -360,6 +363,7 @@
 		<property name="statement" value="This is a short statement" />
 		<property name="skills" value="Easy to use" />
 		<property name="qualifications" value="Good application" />
+		<property name="mandatoryJustification" value="" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job2" />
 	</bean>
