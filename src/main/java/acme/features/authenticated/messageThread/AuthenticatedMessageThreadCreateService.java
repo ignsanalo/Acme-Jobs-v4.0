@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.messages.MessageThread;
 import acme.framework.components.Errors;
+import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.components.Response;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
+import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -25,25 +27,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 	public boolean authorise(final Request<MessageThread> request) {
 		assert request != null;
 
-		boolean result;
-
-		Principal principal;
-
-		int accountId;
-
-		principal = request.getPrincipal();
-
-		accountId = principal.getAccountId();
-
-		if (this.repository.findManyByAuthId(accountId) != null) {
-			result = false;
-		} else {
-			result = true;
-		}
-
-		return result;
-
-		//	return true;
+		return true;
 	}
 
 	@Override
@@ -52,7 +36,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment", "users");
+		request.bind(entity, errors, "moment");
 
 	}
 
@@ -62,7 +46,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title");
+		request.unbind(entity, model, "title", "moment", "users");
 
 	}
 
@@ -70,15 +54,19 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 	public MessageThread instantiate(final Request<MessageThread> request) {
 		assert request != null;
 
-		MessageThread result = new MessageThread();
-		Principal principal;
-		int accountId;
-
-		principal = request.getPrincipal();
-		accountId = principal.getAccountId();
-		MessageThread messageThread = this.repository.findOneById(accountId);
-
-		int messageThreadId = request.getModel().getInteger("messageThread.id");
+		MessageThread result;
+		//		int userAuthtId;
+		//		Principal principal;
+		//		Authenticated auth;
+		//		Collection<Authenticated> userAuthtCollection;
+		//
+		//		principal = request.getPrincipal();
+		//		userAuthtId = principal.getActiveRoleId();
+		//		auth = this.repository.findOneAuthenticatedById(userAuthtId);
+		//
+		result = new MessageThread();
+		//		userAuthtCollection.add(auth);
+		//		result.setUsers(userAuthtCollection);
 
 		return result;
 
@@ -104,13 +92,13 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		this.repository.save(entity);
 	}
 
-	//	@Override
-	//	public void onSuccess(final Request<MessageThread> request, final Response<MessageThread> response) {
-	//		assert request != null;
-	//		assert response != null;
-	//
-	//		if (request.isMethod(HttpMethod.POST)) {
-	//			PrincipalHelper.handleUpdate();
-	//		}
-	//	}
+	@Override
+	public void onSuccess(final Request<MessageThread> request, final Response<MessageThread> response) {
+		assert request != null;
+		assert response != null;
+
+		if (request.isMethod(HttpMethod.POST)) {
+			PrincipalHelper.handleUpdate();
+		}
+	}
 }

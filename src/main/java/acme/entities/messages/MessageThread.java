@@ -43,7 +43,6 @@ public class MessageThread extends DomainEntity {
 	@Length(max = 255)
 	private String								title;
 
-	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date								moment;

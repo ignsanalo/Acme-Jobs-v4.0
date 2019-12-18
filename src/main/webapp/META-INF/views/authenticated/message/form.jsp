@@ -29,7 +29,7 @@
 	</jstl:if>
 
 	<acme:form-submit test="${command == 'create'}" code="authenticated.message.form.button.create"
-		action="/authenticated/message/create" />
+		action="/authenticated/message/create?id=${id}" />
 
 	<acme:form-return code="authenticated.message.form.button.return" />
 

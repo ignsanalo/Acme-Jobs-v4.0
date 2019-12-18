@@ -5,10 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messages.Message;
+import acme.entities.messages.MessageThread;
 import acme.framework.components.Errors;
+import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.components.Response;
 import acme.framework.entities.Authenticated;
+import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -31,7 +35,7 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "moment");
 
 	}
 
@@ -47,9 +51,13 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 
 	@Override
 	public Message instantiate(final Request<Message> request) {
-		Message result;
+		assert request != null;
 
-		result = new Message();
+		Message result = new Message();
+		MessageThread messageThread;
+
+		messageThread = this.repository.findOneThreadById(request.getModel().getInteger("id"));
+		result.setMessageThread(messageThread);
 
 		return result;
 	}
@@ -67,6 +75,16 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 
 		this.repository.save(entity);
 
+	}
+
+	@Override
+	public void onSuccess(final Request<Message> request, final Response<Message> response) {
+		assert request != null;
+		assert response != null;
+
+		if (request.isMethod(HttpMethod.POST)) {
+			PrincipalHelper.handleUpdate();
+		}
 	}
 
 }

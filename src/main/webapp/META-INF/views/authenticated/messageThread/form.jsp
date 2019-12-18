@@ -22,7 +22,7 @@
 		<acme:form-textbox code="authenticated.messageThread.form.label.users" path="userList" />
 	</jstl:if>
 	<acme:form-submit test="${command == 'show'}" code="authenticated.message.form.label.create" method="get"
-		action="/authenticated/message/create" />
+		action="/authenticated/message/create?id=${id}" />
 	<acme:form-submit test="${command == 'show'}" code="authenticated.messageThread.form.label.show-messages" method="get"
 		action="/authenticated/message/list-by-thread?id=${id}" />
 	<acme:form-submit test="${command == 'create'}" code="authenticated.messageThread.form.button.create"
