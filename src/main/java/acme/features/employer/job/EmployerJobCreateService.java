@@ -62,6 +62,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		employer = this.repository.findOneEmployerById(employerId);   //pilla employer
 
 		result.setEmployer(employer);
+		result.setFinalMode(false);
 
 		return result;
 	}
@@ -71,6 +72,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert error != null;
+
 	}
 
 	@Override

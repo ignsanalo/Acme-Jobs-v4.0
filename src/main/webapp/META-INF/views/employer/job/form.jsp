@@ -22,9 +22,15 @@
 	<acme:form-moment code="employer.job.form.label.deadline" path="deadline" />
 	<acme:form-money code="employer.job.form.label.salary" path="salary" />
 	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo" />
-	<acme:form-textarea code="employer.job.form.label.description" path="description" />
-	<acme:form-textbox code="employer.job.form.label.finalMode" path="finalMode" />
 	
+	<acme:form-textarea code="employer.job.form.label.description" path="description" />
+	
+	<jstl:if test="${command == 'create'}">
+	<acme:form-textbox readonly = "true" code="employer.job.form.label.finalMode"  path="finalMode" />
+	</jstl:if>
+	<jstl:if test="${command == 'show'}">
+	<acme:form-textbox  code="employer.job.form.label.finalMode"  path="finalMode" />
+	</jstl:if>
 
 	<acme:form-submit test="${command == 'show'}" code="employer.application.button.list" method="get" 
 		action="/employer/application/list-jobs-app?id=${id}"/>
