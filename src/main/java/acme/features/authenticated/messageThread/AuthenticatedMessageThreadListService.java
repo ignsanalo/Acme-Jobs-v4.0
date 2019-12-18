@@ -32,7 +32,7 @@ public class AuthenticatedMessageThreadListService implements AbstractListServic
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title");
+		request.unbind(entity, model, "title", "moment");
 
 	}
 

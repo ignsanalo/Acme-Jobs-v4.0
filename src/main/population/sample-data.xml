@@ -474,6 +474,17 @@
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer1Employer" />
 	</bean>
+	
+	<bean name="job5" class="acme.entities.jobs.Job">
+		<property name="reference" value="EMP1-JOB5" />
+		<property name="title" value="Title 5" />
+		<property name="deadline" value="2021/11/11 23:59" />
+		<property name="salary" value="€10,000.00" />
+		<property name="description" value="Lorem ipsum sit dolor amet." />
+		<property name="moreInfo" value="http://www.example.com" />
+		<property name="finalMode" value="false" />
+		<property name="employer" ref="employer1Employer" />
+	</bean>
   
   
   <!-- Duty -->
@@ -500,12 +511,25 @@
 	</bean>
 	
 	<bean name="duty4" class="acme.entities.duties.Duty">
-		<property name="title" value="Title 3" />
+		<property name="title" value="Title 4" />
 		<property name="description" value="Duty tutifruti4" />
 		<property name="percentage" value="40.0" />
-		<property name="job" ref="job4" />
+		<property name="job" ref="job5" />
 	</bean>
 	
+	<bean name="duty5" class="acme.entities.duties.Duty">
+		<property name="title" value="Title 5" />
+		<property name="description" value="Duty tutifruti5" />
+		<property name="percentage" value="30.0" />
+		<property name="job" ref="job5" />
+	</bean>
+	
+	<bean name="duty6" class="acme.entities.duties.Duty">
+		<property name="title" value="Title 6" />
+		<property name="description" value="Duty tutifruti6" />
+		<property name="percentage" value="30.0" />
+		<property name="job" ref="job5" />
+	</bean>
 
 	<!-- Authenticated  1-->
 	
