@@ -12,7 +12,7 @@
 	
 	<acme:form-submit test="${command == 'create'}" code="auditor.auditrecord.form.button.create"
 		action="/auditor/auditrecord/create?id=${id}"/>
-	<acme:form-submit test="${command == 'show' && !finaMode}" code="auditor.auditrecord.form.button.update"
+	<acme:form-submit test="${command == 'show' && !finalMode}" code="auditor.auditrecord.form.button.update"
 		action="/auditor/auditrecord/update"/>
 	<acme:form-submit test="${command == 'update'}" code="auditor.auditrecord.form.button.update"
 		action="/auditor/auditrecord/update"/>		
