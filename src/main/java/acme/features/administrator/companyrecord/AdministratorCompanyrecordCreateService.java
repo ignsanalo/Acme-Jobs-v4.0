@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.companyrecords.Companyrecord;
+import acme.entities.configuration.Configuration;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -57,6 +58,14 @@ public class AdministratorCompanyrecordCreateService implements AbstractCreateSe
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Configuration config;
+		config = this.repository.findManyConfiguration().stream().findFirst().get();
+
+		if (!errors.hasErrors("description")) {
+			boolean isSpam = !config.isSpam(entity.getDescription());
+			errors.state(request, isSpam, "description", "administrator.companyRecords.error.spam");
+		}
 	}
 
 	@Override

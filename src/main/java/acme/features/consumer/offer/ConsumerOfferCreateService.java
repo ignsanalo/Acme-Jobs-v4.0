@@ -6,6 +6,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.offers.Offer;
 import acme.entities.roles.Consumer;
 import acme.framework.components.Errors;
@@ -88,6 +89,14 @@ public class ConsumerOfferCreateService implements AbstractCreateService<Consume
 		if (!errors.hasErrors("ticker")) {
 			Boolean tickerFormat = entity.getTicker().matches("^[O]{1}[A-Z]{4}\\-[0-9]{5}$");
 			errors.state(request, tickerFormat, "ticker", "consumer.offer.error.tickerFormat");
+		}
+
+		Configuration config;
+		config = this.repository.findManyConfiguration().stream().findFirst().get();
+
+		if (!errors.hasErrors("text")) {
+			boolean isSpam = !config.isSpam(entity.getText());
+			errors.state(request, isSpam, "text", "authenticated.consumer.error.spam");
 		}
 
 	}
