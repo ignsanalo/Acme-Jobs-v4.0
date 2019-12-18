@@ -15,6 +15,7 @@ package acme.features.authenticated.worker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.roles.Worker;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -30,12 +31,10 @@ import acme.framework.services.AbstractCreateService;
 @Service
 public class AuthenticatedWorkerCreateService implements AbstractCreateService<Authenticated, Worker> {
 
-
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private AuthenticatedWorkerRepository repository;
-
 
 
 	// AbstractCreateService<Authenticated, Worker> interface ---------------
@@ -91,6 +90,19 @@ public class AuthenticatedWorkerCreateService implements AbstractCreateService<A
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Configuration config;
+		config = this.repository.findManyConfiguration().stream().findFirst().get();
+
+		if (!errors.hasErrors("skills")) {
+			boolean isSpam = !config.isSpam(entity.getSkills());
+			errors.state(request, isSpam, "skills", "authenticated.worker.error.spam");
+		}
+
+		if (!errors.hasErrors("qualifications")) {
+			boolean isSpam = !config.isSpam(entity.getQualifications());
+			errors.state(request, isSpam, "qualifications", "authenticated.worker.error.spam");
+		}
 	}
 
 	@Override

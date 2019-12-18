@@ -12,9 +12,12 @@
 
 package acme.features.authenticated.worker;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.roles.Worker;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
@@ -28,4 +31,6 @@ public interface AuthenticatedWorkerRepository extends AbstractRepository {
 	@Query("select w from Worker w where w.userAccount.id = ?1")
 	Worker findOneWorkerByUserAccountId(int id);
 
+	@Query("select c from Configuration c")
+	Collection<Configuration> findManyConfiguration();
 }

@@ -186,8 +186,12 @@
         `version` integer not null,
         `moment` datetime(6),
         `title` varchar(255),
-        `owner_id` integer not null,
         primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `message_thread_authenticated` (
+       `message_thread_id` integer not null,
+        `users_id` integer not null
     ) engine=InnoDB;
 
     create table `offer` (
@@ -356,10 +360,15 @@ create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
        foreign key (`message_thread_id`) 
        references `message_thread` (`id`);
 
-    alter table `message_thread` 
-       add constraint `FKljabur1weonvmg511atm2ql6` 
-       foreign key (`owner_id`) 
+    alter table `message_thread_authenticated` 
+       add constraint `FKsnymblhgu3dixq3t2qhptr4x2` 
+       foreign key (`users_id`) 
        references `authenticated` (`id`);
+
+    alter table `message_thread_authenticated` 
+       add constraint `FKjb0tx79q4dpibs3mnkp6wfqvf` 
+       foreign key (`message_thread_id`) 
+       references `message_thread` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
