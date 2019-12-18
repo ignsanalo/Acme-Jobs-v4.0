@@ -29,6 +29,7 @@
 	
 	<acme:form-submit code="employer.job.form.button.duty-list" method="get" 
 		action="/authenticated/duty/list-by-job?id=${id}"/>
+		
 	
 	<acme:form-return code="employer.job.form.button.return" />
 	

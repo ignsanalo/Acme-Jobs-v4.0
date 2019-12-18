@@ -10,7 +10,6 @@ import acme.entities.applications.Application;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -33,7 +32,7 @@ public class EmployerApplicationListService implements AbstractListService<Emplo
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "moment", "status");
+		request.unbind(entity, model, "reference", "status", "moment");
 	}
 
 	@Override
@@ -41,9 +40,10 @@ public class EmployerApplicationListService implements AbstractListService<Emplo
 		assert request != null;
 
 		Collection<Application> result;
-		Principal principal = request.getPrincipal();
+		Integer idJob;
 
-		result = this.repository.findManyByJobId(principal.getActiveRoleId());
+		idJob = request.getModel().getInteger("id");
+		result = this.repository.findManyByJobId(idJob);
 
 		return result;
 	}

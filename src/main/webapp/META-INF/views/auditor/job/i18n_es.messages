@@ -14,4 +14,6 @@ auditor.job.form.label.description= Descripción
 
 auditor.job.form.label.auditRecord= Registros de audotiría
 
+auditor.job.form.button.create=Crear
+
 auditor.job.form.button.return= Volver

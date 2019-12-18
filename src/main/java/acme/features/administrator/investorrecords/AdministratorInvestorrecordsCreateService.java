@@ -4,6 +4,7 @@ package acme.features.administrator.investorrecords;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.investorrecords.Investorrecords;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -59,6 +60,14 @@ public class AdministratorInvestorrecordsCreateService implements AbstractCreate
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Configuration config;
+		config = this.repository.findManyConfiguration().stream().findFirst().get();
+
+		if (!errors.hasErrors("statment")) {
+			boolean isSpam = !config.isSpam(entity.getStatement());
+			errors.state(request, isSpam, "statement", "administrator.investorRecords.error.spam");
+		}
 
 	}
 

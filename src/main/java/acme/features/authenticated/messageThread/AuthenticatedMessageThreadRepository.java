@@ -18,6 +18,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.messages.MessageThread;
+import acme.framework.entities.Authenticated;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -26,7 +27,13 @@ public interface AuthenticatedMessageThreadRepository extends AbstractRepository
 	@Query("select m from MessageThread m where m.id = ?1 ")
 	MessageThread findOneById(int id);
 
-	@Query("select m from MessageThread m join m.users users where users.id = ?1")
-	Collection<MessageThread> findManyByAuthId(int AuthId);
+	@Query("select m from MessageThread m where m.owner.id = ?1")
+	Collection<MessageThread> findManyByAuthId(int id);
+
+	@Query("select a from Authenticated a where a.id = ?1")
+	Authenticated findOneAuthenticatedById(int id);
+
+	@Query("select m from MessageThread m")
+	Collection<MessageThread> findManyAll();
 
 }

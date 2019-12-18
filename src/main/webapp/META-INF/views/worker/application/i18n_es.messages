@@ -14,7 +14,9 @@ worker.application.form.label.status = Estado:
 worker.application.form.label.statement = Declaración:
 worker.application.form.label.skills = Habilidades:
 worker.application.form.label.qualifications = Calificaciones:
+worker.application.form.label.mandatoryJustification = Justificación:
 
+worker.application.error.referenceFormat = El formato de la referencia debe ser: EMPX-JOBX:WORX
 
 worker.application.list.label.reference = Referencia
 worker.application.list.label.moment = Momento
@@ -23,4 +25,5 @@ worker.application.form.label.status.pending = Pendiente
 worker.application.form.label.status.accepted = Aceptada
 worker.application.form.label.status.rejected = Denegada
 
+worker.application.form.button.create = Crear
 worker.application.form.button.return = Volver

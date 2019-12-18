@@ -17,7 +17,7 @@ import acme.framework.services.AbstractListService;
 public class AuthenticatedMessageThreadListMineService implements AbstractListService<Authenticated, MessageThread> {
 
 	@Autowired
-	AuthenticatedMessageThreadRepository repository;
+	private AuthenticatedMessageThreadRepository repository;
 
 
 	@Override

@@ -24,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "ticker")
+	@Index(columnList = "deadline")
 })
 public class Requests extends DomainEntity {
 

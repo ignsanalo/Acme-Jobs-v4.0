@@ -18,8 +18,14 @@ employer.job.form.label.deadline = Fecha límite:
 employer.job.form.label.salary = Salario:
 employer.job.form.label.moreInfo = Más info:
 employer.job.form.label.description = Descripción:
+employer.job.form.label.errorApli = No se puede borrar trabajos con aplicaciones
 
 employer.application.button.list = Listar aplicaciones
 employer.job.form.button.duty-list = Listar tareas
+employer.job.form.label.finalMode= modo final
+
+employer.job.form.button.create = Crear
+employer.job.form.button.update = Actualizar
+employer.job.form.button.delete = Eliminar
 
 employer.job.form.button.return = Volver

@@ -29,8 +29,10 @@ master.menu.user-account.companyrecord.list = Listar registro de compañias
 master.menu.user-account.investorrecords.list = Listar registros de inversores
 master.menu.user-account.offer.list = Listar ofertas
 master.menu.user-account.challenge.list = Listar desafíos
-master.menu.user-account.message-thread.list = Hilo de mensajes
+master.menu.user-account.message-thread.list-mine = Listar mis hilos de mensajes
+master.menu.user-account.message-thread.list = Listar hilos de mensajes 
 master.menu.user-account.job.list = Listar trabajos
+master.menu.user-account.message-thread.create = Crear hilo de mensajes
 master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
@@ -58,6 +60,8 @@ master.menu.administrator.companyrecord.create = Crear registro de compañias
 master.menu.administrator.configuration = Parámetros de personalización
 master.menu.administrator.challenge.list = Listar desafíos
 master.menu.administrator.challenge.create = Crear desafíos
+master.menu.administrator.auditor-request.list = Listar solicitudes de auditores
+
 
 
 # master.menu.provider ########################################################
@@ -79,20 +83,35 @@ master.menu.consumer.offers.create = Crear Ofertas
 master.menu.auditor = Auditor
 master.menu.auditor.job.list= Listar trabajos con auditoría
 master.menu.auditor.job.list2= Listar trabajos sin auditoría
+master.menu.auditor.job.list3= Listar todos los trabajos
 
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.become-employer = Hazte empleado
+master.menu.user-account.update-employer = Actualizar datos de empleado
+master.menu.user-account.become-worker = Hazte trabajador
+master.menu.user-account.update-worker = Actualizar datos de trabajador
 master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.worker = Datos de trabajador
+master.menu.user-account.become-worker = Hazte trabajador
+master.menu.user-account.become-auditor = Hazte auditor
 
 # master.menu.worker ####################################################
 
 master.menu.worker = Trabajador
 master.menu.worker.application.list = Listar aplicaciones
+master.menu.worker.job.list = Listar trabajos
+
+# master.menu.employer ####################################################
+
+master.menu.employer = Empleador
+master.menu.employer.job.list = Listar trabajos
+master.menu.employer.job.create = Crear trabajo
 
 ﻿# master.footer ###############################################################
 

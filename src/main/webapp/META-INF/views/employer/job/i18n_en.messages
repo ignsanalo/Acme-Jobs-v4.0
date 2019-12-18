@@ -18,8 +18,14 @@ employer.job.form.label.deadline = Deadline:
 employer.job.form.label.salary = Salary:
 employer.job.form.label.moreInfo = More info:
 employer.job.form.label.description = Description:
+employer.job.form.label.errorApli = Cant delete Jobs with Applications
 
 employer.job.form.button.duty-list = List duties
 employer.application.button.list = List applications
+employer.job.form.label.finalMode=final mode
+
+employer.job.form.button.create = Create
+employer.job.form.button.update = Update
+employer.job.form.button.delete = Delete
 
 employer.job.form.button.return = Return

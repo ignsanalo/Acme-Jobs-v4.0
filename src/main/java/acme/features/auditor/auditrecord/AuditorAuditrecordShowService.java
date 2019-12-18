@@ -24,13 +24,7 @@ public class AuditorAuditrecordShowService implements AbstractShowService<Audito
 
 		boolean result;
 
-		int auditrecordID;
-		Auditrecord auditrecord;
-
-		auditrecordID = request.getModel().getInteger("id");
-		auditrecord = this.repository.findOneAuditById(auditrecordID);
-
-		result = auditrecord.isFinalMode();
+		result = true;
 
 		return result;
 
@@ -54,7 +48,7 @@ public class AuditorAuditrecordShowService implements AbstractShowService<Audito
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneAuditById(id);
+		result = this.repository.findOneAuditrecordById(id);
 
 		return result;
 

@@ -14,10 +14,14 @@ authenticated.message.form.label.tags = Tags:
 authenticated.message.form.label.body = Body:
 authenticated.message.form.label.message-thread = Message Thread:
 
+authenticated.message.label.accept = Confirm
 
+authenticated.message.form.button.create = Create
 authenticated.message.form.button.return = Return
 
 authenticated.message.list.label.title = Title
 authenticated.message.list.label.tags = Tags
 authenticated.message.list.label.moment = Moment
+
+authenticated.message.error.must-accept = Must accept
 
