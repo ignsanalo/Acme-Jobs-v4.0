@@ -1,25 +1,21 @@
 
 package acme.features.auditor.auditrecord;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.auditrecords.Auditrecord;
-import acme.entities.jobs.Job;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.components.Response;
-import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class AuditorAuditrecordCreateService implements AbstractCreateService<Auditor, Auditrecord> {
+public class AuditorAuditrecordUpdateService implements AbstractUpdateService<Auditor, Auditrecord> {
 
 	@Autowired
 	AuditorAuditrecordRepository repository;
@@ -32,15 +28,21 @@ public class AuditorAuditrecordCreateService implements AbstractCreateService<Au
 		return true;
 	}
 	@Override
+	public void validate(final Request<Auditrecord> request, final Auditrecord entity, final Errors error) {
+		assert request != null;
+		assert entity != null;
+		assert error != null;
+	}
+
+	@Override
 	public void bind(final Request<Auditrecord> request, final Auditrecord entity, final Errors error) {
 		assert request != null;
 		assert entity != null;
 		assert error != null;
 
-		request.bind(entity, error, "moment");
+		request.bind(entity, error);
 
 	}
-
 	@Override
 	public void unbind(final Request<Auditrecord> request, final Auditrecord entity, final Model model) {
 		assert request != null;
@@ -49,52 +51,26 @@ public class AuditorAuditrecordCreateService implements AbstractCreateService<Au
 
 		request.unbind(entity, model, "title", "body", "finalMode");
 	}
-
 	@Override
-	public Auditrecord instantiate(final Request<Auditrecord> request) {
+
+	public Auditrecord findOne(final Request<Auditrecord> request) {
 		assert request != null;
 
 		Auditrecord result;
-		Principal principal;
-		int auditorId;
-		Auditor auditor;
-		result = new Auditrecord();
+		int id = request.getModel().getInteger("id");
 
-		principal = request.getPrincipal();
-		auditorId = principal.getActiveRoleId();
-
-		auditor = this.repository.findOneAuditorById(auditorId);   //pilla auditor
-
-		int auditorRId = request.getModel().getInteger("id");
-
-		Job job = this.repository.findManyByJobId(auditorRId).stream().findFirst().get().getJob();
-
-		result.setAuditor(auditor);
-		result.setJob(job);
+		result = this.repository.findOneAuditrecordById(id);
 
 		return result;
 	}
-
 	@Override
-	public void validate(final Request<Auditrecord> request, final Auditrecord entity, final Errors error) {
-		assert request != null;
-		assert entity != null;
-		assert error != null;
-	}
-
-	@Override
-	public void create(final Request<Auditrecord> request, final Auditrecord entity) {
+	public void update(final Request<Auditrecord> request, final Auditrecord entity) {
 		assert request != null;
 		assert entity != null;
 
-		Date moment;
-
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setMoment(moment);
 		this.repository.save(entity);
 
 	}
-
 	@Override
 	public void onSuccess(final Request<Auditrecord> request, final Response<Auditrecord> response) {
 		assert request != null;

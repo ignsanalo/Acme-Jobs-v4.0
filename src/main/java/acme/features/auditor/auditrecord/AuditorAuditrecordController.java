@@ -26,11 +26,15 @@ public class AuditorAuditrecordController extends AbstractController<Auditor, Au
 
 	@Autowired
 	private AuditorAuditrecordCreateService		createService;
+	@Autowired
+	private AuditorAuditrecordUpdateService		updateService;
 
 
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 

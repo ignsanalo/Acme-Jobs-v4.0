@@ -52,7 +52,7 @@
         `firm` varchar(255),
         `statement` varchar(255),
         `status` integer,
-        `user_id` integer,
+        `user_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -262,22 +262,25 @@ create index IDXdwumdwpjcwdk1mef9ua69yc2p on `application` (`reference`);
     alter table `application` 
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
 create index IDXr9ok0mijxo79e2biupolm5v85 on `auditor` (`firm`);
-create index IDXmf9qm9b41w1b3vxcb0iolyqs8 on `auditrecord` (`moment`);
+
+    alter table `auditor_request` 
+       add constraint UK_emf8dnwjroe97odrlcsuk1nwo unique (`user_id`);
+create index IDX473gmos37c8jkvb2b9t753q0i on `auditrecord` (`final_mode`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDXl5b4yjfrl81yhfahb12r3fofp on `companyrecord` (`name`);
 create index IDX4wi5b8uhexxn82hfv30od89cd on `configuration` (`spam_words`);
 create index IDXuojinocjhspe71r200ye4svp on `consumer` (`company`);
 create index IDXqm67mgqcgcacn4vyv1p4ws8ln on `employer` (`company`);
 create index IDXr9kc03vaq2k507xnie0nfu80h on `investorrecords` (`sector`);
-create index IDX8ix743uifflnrs9bupbn6y0h4 on `job` (`reference`);
+create index IDXfdmpnr8o4phmk81sqsano16r on `job` (`deadline`);
 
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
 create index IDXeq5fhm2b5j1q3ex9vhpmvlwg0 on `message` (`moment`);
 create index IDXkyl36hj4o9e0butj9mrwv291d on `message_thread` (`moment`);
-create index IDXcp4664f36sgqsd0ihmirt0w0 on `offer` (`ticker`);
+create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
 create index IDX5ryg86pl6nbhrnuralgx5agqv on `provider` (`company`);
-create index IDX2ijmvvrwi2t1isu2m2ncm5qn1 on `requests` (`ticker`);
+create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
 
     alter table `requests` 
        add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);

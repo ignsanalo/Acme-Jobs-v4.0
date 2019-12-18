@@ -12,7 +12,7 @@
 	<acme:form-textbox code="auditor.job.form.label.moreInfo" path="moreInfo"/>
 	
 	<acme:form-submit code="auditor.job.form.label.auditRecord" method="get" action="/auditor/auditrecord/list-by-job?id=${id}"/>
-	<acme:form-submit test="${command == 'show'}" code="auditor.job.form.button.create" action="/auditor/auditrecord/create"/>
+	<acme:form-submit code="auditor.job.form.button.create" action="/auditor/auditrecord/create"/>
 
 	
 	<acme:form-return code="auditor.job.form.button.return"/>

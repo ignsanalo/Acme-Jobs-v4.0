@@ -6,5 +6,5 @@ auditor.auditrecord.form.label.status Modo final
 auditor.auditrecord.list.label.title = Título
 
 auditor.auditrecord.form.button.create=Crear
-
+auditor.auditrecord.form.button.update= Actualizar
 auditor.job.form.button.return = Volver
