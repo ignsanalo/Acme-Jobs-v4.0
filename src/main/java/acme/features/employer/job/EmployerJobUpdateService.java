@@ -70,6 +70,13 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 	public void update(final Request<Job> request, final Job entity) {
 		assert request != null;
 		assert entity != null;
+		Double porcentaje = this.repository.sumOfPercentagesDuty(entity.getId());
+
+		if (porcentaje == null || porcentaje > 100.00) {
+
+			entity.setFinalMode(false);
+
+		}
 
 		this.repository.save(entity);
 
