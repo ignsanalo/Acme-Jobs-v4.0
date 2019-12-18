@@ -11,8 +11,8 @@
 	<acme:form-textbox code="auditor.auditrecord.form.label.status" path="finalMode"/>
 	
 	<acme:form-submit test="${command == 'create'}" code="auditor.auditrecord.form.button.create"
-		action="/auditor/auditrecord/create"/>
-	<acme:form-submit test="${command == 'show'}" code="auditor.auditrecord.form.button.update"
+		action="/auditor/auditrecord/create?id=${id}"/>
+	<acme:form-submit test="${command == 'show' && !finaMode}" code="auditor.auditrecord.form.button.update"
 		action="/auditor/auditrecord/update"/>
 	<acme:form-submit test="${command == 'update'}" code="auditor.auditrecord.form.button.update"
 		action="/auditor/auditrecord/update"/>		

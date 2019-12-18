@@ -46,8 +46,8 @@ public class AuditorAuditrecordCreateService implements AbstractCreateService<Au
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
 		request.unbind(entity, model, "title", "body", "finalMode");
+		model.setAttribute("id", entity.getJob().getId());
 	}
 
 	@Override
@@ -65,9 +65,8 @@ public class AuditorAuditrecordCreateService implements AbstractCreateService<Au
 
 		auditor = this.repository.findOneAuditorById(auditorId);   //pilla auditor
 
-		int auditorRId = request.getModel().getInteger("id");
-
-		Job job = this.repository.findManyByJobId(auditorRId).stream().findFirst().get().getJob();
+		int jobId = request.getModel().getInteger("id");
+		Job job = this.repository.findOneJobById(jobId);
 
 		result.setAuditor(auditor);
 		result.setJob(job);
