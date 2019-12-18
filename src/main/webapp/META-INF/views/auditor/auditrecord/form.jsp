@@ -8,7 +8,17 @@
 
 	<acme:form-textbox code="auditor.auditrecord.form.label.body" path="body"/>
 	
-	<acme:form-textbox code="auditor.auditrecord.form.label.status" path="finalMode"/>
+	<acme:form-select  code="auditor.job.form.label.finalMode" path="finalMode">
+	<acme:form-option code="auditor.job.form.label.finalMode.yes" value="true"/>
+					<jstl:choose>
+						<jstl:when test="${!finalMode}">
+							<acme:form-option code="auditor.job.form.label.finalMode.no" selected = "true" value="false"/>
+						</jstl:when>
+						<jstl:otherwise>
+							<acme:form-option code="auditor.job.form.label.finalMode.no" value="false"/>
+						</jstl:otherwise>
+					</jstl:choose>
+	</acme:form-select>
 	
 	<acme:form-submit test="${command == 'create'}" code="auditor.auditrecord.form.button.create"
 		action="/auditor/auditrecord/create?id=${id}"/>
