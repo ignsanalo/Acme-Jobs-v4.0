@@ -13,6 +13,8 @@ authenticated.messageThread.form.label.moment = Moment:
 authenticated.messageThread.form.label.users = Users:
 
 authenticated.messageThread.form.label.show-messages = Messages
+authenticated.messageThread.form.button.create = Create
+authenticated.message.form.label.create = Create message
 
 authenticated.messageThread.form.button.return = Return
 

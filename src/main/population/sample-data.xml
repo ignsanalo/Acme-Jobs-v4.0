@@ -546,12 +546,7 @@
 	<bean name="MessageThread1" class="acme.entities.messages.MessageThread">
 		<property name="title" value="Primer Hilo"/>
 		<property name="moment" value="2019/11/12 19:59" />
-		<property name="users">
-			<list>
-				<ref bean="AlvaroAuthenticated" />
-				<ref bean="employer1Authenticated"/>
-			</list>
-		</property>
+		<property name="owner" ref="AlvaroAuthenticated"/>
 	</bean>
 
 

@@ -88,7 +88,11 @@
 			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.user-account.job.list" action="/authenticated/job/list" />
 			<acme:menu-separator />
-			<acme:menu-suboption code="master.menu.user-account.message-thread.list" action="/authenticated/message-thread/list-mine" />
+			<acme:menu-suboption code="master.menu.user-account.message-thread.list-mine" action="/authenticated/message-thread/list-mine" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.user-account.message-thread.list" action="/authenticated/message-thread/list" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.user-account.message-thread.create" action="/authenticated/message-thread/create" />
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.worker" access="hasRole('Worker')">

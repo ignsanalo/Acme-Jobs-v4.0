@@ -19,7 +19,6 @@ import acme.entities.messages.Message;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -37,23 +36,7 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 	public boolean authorise(final Request<Message> request) {
 		assert request != null;
 
-		boolean result = false;
-		int messageId;
-		Message message;
-		messageId = request.getModel().getInteger("id");
-
-		Principal principal;
-		principal = request.getPrincipal();
-
-		message = this.repository.findOneById(messageId);
-
-		for (Authenticated a : message.getMessageThread().getUsers()) {
-			if (a.getId() == principal.getActiveRoleId()) {
-				result = true;
-			}
-		}
-
-		return result;
+		return true;
 	}
 
 	@Override
