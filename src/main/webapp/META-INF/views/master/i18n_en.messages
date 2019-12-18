@@ -109,6 +109,7 @@ master.menu.worker.job.list = List jobs
 
 master.menu.employer = Employer
 master.menu.employer.job.list = List jobs
+master.menu.employer.job.create = Create job
 
 
 # master.footer ###############################################################
