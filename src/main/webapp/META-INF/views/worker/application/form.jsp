@@ -17,16 +17,10 @@
 
 <acme:form>
 	<acme:form-textbox code="worker.application.form.label.reference" path="reference" />
-	<acme:form-moment code="worker.application.form.label.moment" path="moment" />
 	<acme:form-textbox code="worker.application.form.label.statement" path="statement" />
 	<acme:form-textbox code="worker.application.form.label.skills" path="skills" />
 	<acme:form-textbox code="worker.application.form.label.qualifications" path="qualifications" />
-	<acme:form-select code="worker.application.form.label.status" path="status">
-		<acme:form-option code="worker.application.form.label.status.pending" value="PENDING"/>
-		<acme:form-option code="worker.application.form.label.status.accepted" value="ACCEPTED"/>
-		<acme:form-option code="worker.application.form.label.status.rejected" value="REJECTED"/>
-	</acme:form-select>
-	
-	
+	<acme:form-textarea readonly="true" code="worker.application.form.label.mandatoryJustification" path="mandatoryJustification" />
+	<acme:form-submit test="${command =='create' }" code="worker.application.form.button.create" action="/worker/application/create?id=${id}" />
 	<acme:form-return code="worker.application.form.button.return" />
 </acme:form>

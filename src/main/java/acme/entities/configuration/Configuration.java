@@ -4,8 +4,10 @@ package acme.entities.configuration;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -24,7 +26,8 @@ public class Configuration extends DomainEntity {
 	@NotBlank
 	private String				spamWords;
 
-	@NotNull
+	@Range(min = 0, max = 1)
+	@Digits(integer = 1, fraction = 2)
 	private Double				spamThreshold;
 
 }

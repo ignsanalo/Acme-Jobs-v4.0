@@ -82,6 +82,7 @@ master.menu.consumer.offers.create = Create Offers
 master.menu.auditor =Auditor
 master.menu.auditor.job.list= List Jobs with audit
 master.menu.auditor.job.list2= List Jobs without audit
+master.menu.auditor.job.list3= List all Jobs
 
 # master.menu.user-account ####################################################
 
@@ -95,6 +96,8 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.worker = Worker data
+master.menu.user-account.become-worker = Become a worker
 master.menu.user-account.become-auditor = Become an auditor
 
 
@@ -102,11 +105,13 @@ master.menu.user-account.become-auditor = Become an auditor
 
 master.menu.worker = Worker
 master.menu.worker.application.list = List applications
+master.menu.worker.job.list = List jobs
 
 # master.menu.employer ####################################################
 
 master.menu.employer = Employer
 master.menu.employer.job.list = List jobs
+master.menu.employer.job.create = Create job
 
 
 # master.footer ###############################################################

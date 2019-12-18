@@ -1,4 +1,3 @@
-
     create table `administrator` (
        `id` integer not null,
         `version` integer not null,
@@ -26,6 +25,7 @@
     create table `application` (
        `id` integer not null,
         `version` integer not null,
+        `mandatory_justification` varchar(255),
         `moment` datetime(6),
         `qualifications` varchar(255),
         `reference` varchar(255),
@@ -52,7 +52,7 @@
         `firm` varchar(255),
         `statement` varchar(255),
         `status` integer,
-        `user_id` integer,
+        `user_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -185,8 +185,12 @@
         `version` integer not null,
         `moment` datetime(6),
         `title` varchar(255),
-        `owner_id` integer not null,
         primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `message_thread_authenticated` (
+       `message_thread_id` integer not null,
+        `users_id` integer not null
     ) engine=InnoDB;
 
     create table `offer` (
@@ -258,22 +262,25 @@ create index IDXdwumdwpjcwdk1mef9ua69yc2p on `application` (`reference`);
     alter table `application` 
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
 create index IDXr9ok0mijxo79e2biupolm5v85 on `auditor` (`firm`);
-create index IDXmf9qm9b41w1b3vxcb0iolyqs8 on `auditrecord` (`moment`);
+
+    alter table `auditor_request` 
+       add constraint UK_emf8dnwjroe97odrlcsuk1nwo unique (`user_id`);
+create index IDX473gmos37c8jkvb2b9t753q0i on `auditrecord` (`final_mode`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDXl5b4yjfrl81yhfahb12r3fofp on `companyrecord` (`name`);
 create index IDX4wi5b8uhexxn82hfv30od89cd on `configuration` (`spam_words`);
 create index IDXuojinocjhspe71r200ye4svp on `consumer` (`company`);
 create index IDXqm67mgqcgcacn4vyv1p4ws8ln on `employer` (`company`);
 create index IDXr9kc03vaq2k507xnie0nfu80h on `investorrecords` (`sector`);
-create index IDX8ix743uifflnrs9bupbn6y0h4 on `job` (`reference`);
+create index IDXfdmpnr8o4phmk81sqsano16r on `job` (`deadline`);
 
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
 create index IDXeq5fhm2b5j1q3ex9vhpmvlwg0 on `message` (`moment`);
 create index IDXkyl36hj4o9e0butj9mrwv291d on `message_thread` (`moment`);
-create index IDXcp4664f36sgqsd0ihmirt0w0 on `offer` (`ticker`);
+create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
 create index IDX5ryg86pl6nbhrnuralgx5agqv on `provider` (`company`);
-create index IDX2ijmvvrwi2t1isu2m2ncm5qn1 on `requests` (`ticker`);
+create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
 
     alter table `requests` 
        add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);
@@ -352,10 +359,15 @@ create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
        foreign key (`message_thread_id`) 
        references `message_thread` (`id`);
 
-    alter table `message_thread` 
-       add constraint `FKljabur1weonvmg511atm2ql6` 
-       foreign key (`owner_id`) 
+    alter table `message_thread_authenticated` 
+       add constraint `FKsnymblhgu3dixq3t2qhptr4x2` 
+       foreign key (`users_id`) 
        references `authenticated` (`id`);
+
+    alter table `message_thread_authenticated` 
+       add constraint `FKjb0tx79q4dpibs3mnkp6wfqvf` 
+       foreign key (`message_thread_id`) 
+       references `message_thread` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
