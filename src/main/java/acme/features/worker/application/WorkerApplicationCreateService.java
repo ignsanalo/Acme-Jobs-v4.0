@@ -31,14 +31,13 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		return true;
 	}
-
 	@Override
 	public void bind(final Request<Application> request, final Application entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment");
+		request.bind(entity, errors, "moment", "");
 
 	}
 
@@ -48,35 +47,30 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "statement", "skills", "qualifications");
-
+		request.unbind(entity, model, "reference", "status", "statement", "skills", "qualifications", "mandatoryJustification");
+		model.setAttribute("id", entity.getJob().getId());
 	}
 
 	@Override
 	public Application instantiate(final Request<Application> request) {
 		assert request != null;
 
-		Worker worker;
-
-		Job job;
-
+		Application result = new Application();
 		Principal principal;
 		int userAccountId;
 		int jobId;
+		Worker worker;
 
 		principal = request.getPrincipal();
 		userAccountId = principal.getActiveRoleId();
 		jobId = request.getModel().getInteger("id");
-
 		worker = this.repository.findApplicationWorkerById(userAccountId);
-
-		job = this.repository.findApplicationJobById(jobId);
-
-		Application result = new Application();
+		Job job = this.repository.findApplicationJobById(jobId);
 
 		result.setWorker(worker);
 		result.setJob(job);
 		result.setStatus("PENDING");
+		result.setMandatoryJustification("");
 
 		return result;
 	}
