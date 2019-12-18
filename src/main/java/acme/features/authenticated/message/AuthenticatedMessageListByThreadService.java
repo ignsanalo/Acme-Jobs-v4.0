@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messages.Message;
-import acme.entities.messages.MessageThread;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -25,23 +23,7 @@ public class AuthenticatedMessageListByThreadService implements AbstractListServ
 	public boolean authorise(final Request<Message> request) {
 		assert request != null;
 
-		boolean result = false;
-		int threadId;
-		MessageThread messageThread;
-		threadId = request.getModel().getInteger("id");
-
-		Principal principal;
-		principal = request.getPrincipal();
-
-		messageThread = this.repository.findOneThreadById(threadId);
-
-		for (Authenticated a : messageThread.getUsers()) {
-			if (a.getId() == principal.getActiveRoleId()) {
-				result = true;
-			}
-		}
-
-		return result;
+		return true;
 
 	}
 

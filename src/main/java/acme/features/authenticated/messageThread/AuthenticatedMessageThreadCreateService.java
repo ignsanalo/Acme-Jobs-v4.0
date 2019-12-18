@@ -13,6 +13,7 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.components.Response;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
@@ -46,7 +47,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment", "users");
+		request.unbind(entity, model, "title");
 
 	}
 
@@ -54,19 +55,15 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 	public MessageThread instantiate(final Request<MessageThread> request) {
 		assert request != null;
 
-		MessageThread result;
-		//		int userAuthtId;
-		//		Principal principal;
-		//		Authenticated auth;
-		//		Collection<Authenticated> userAuthtCollection;
-		//
-		//		principal = request.getPrincipal();
-		//		userAuthtId = principal.getActiveRoleId();
-		//		auth = this.repository.findOneAuthenticatedById(userAuthtId);
-		//
-		result = new MessageThread();
-		//		userAuthtCollection.add(auth);
-		//		result.setUsers(userAuthtCollection);
+		MessageThread result = new MessageThread();
+
+		Principal principal = request.getPrincipal();
+
+		int ownerId = principal.getActiveRoleId();
+
+		Authenticated owner = this.repository.findOneAuthenticatedById(ownerId);
+
+		result.setOwner(owner);
 
 		return result;
 
