@@ -55,6 +55,7 @@ public class Application extends DomainEntity {
 	@NotBlank
 	private String	status;
 
+	@NotBlank
 	private String	statement;
 
 	@NotBlank
@@ -62,6 +63,8 @@ public class Application extends DomainEntity {
 
 	@NotBlank
 	private String	qualifications;
+
+	private String	mandatoryJustification;
 
 	// Relationships ----------------------------------------------------------------------
 

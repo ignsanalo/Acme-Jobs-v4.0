@@ -45,7 +45,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications");
+		request.unbind(entity, model, "reference", "moment", "status", "justificationMandatory", "statement", "skills", "qualifications");
 
 	}
 
@@ -68,10 +68,10 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert entity != null;
 		assert errors != null;
 
-		if (!errors.hasErrors("status") && !errors.hasErrors("statement")) {
+		if (!errors.hasErrors("status") && !errors.hasErrors("mandatoryJustification")) {
 
-			Boolean mensajeRechazo = !entity.getStatement().isEmpty() && entity.getStatus().equals("REJECTED") || entity.getStatus().equals("ACCEPTED");
-			errors.state(request, mensajeRechazo, "statement", "employer.application.error.mensajeRechazo");
+			Boolean mensajeRechazo = !entity.getMandatoryJustification().isEmpty() && entity.getStatus().equals("REJECTED") || entity.getStatus().equals("ACCEPTED");
+			errors.state(request, mensajeRechazo, "mandatoryJustification", "employer.application.error.mensajeRechazo");
 
 		}
 	}

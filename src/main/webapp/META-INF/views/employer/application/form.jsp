@@ -18,8 +18,12 @@
 <acme:form>
 	<acme:form-textbox readonly="true" code="employer.application.form.label.reference" path="reference" />
 	<acme:form-moment readonly="true" code="employer.application.form.label.moment" path="moment" />
-	<acme:form-textbox code="employer.application.form.label.status" path="status" />
-	<acme:form-textbox code="employer.application.form.label.statement" path="statement" />
+	<acme:form-select code="employer.application.form.label.status" path="status">
+	 	<acme:form-option code="employer.application.form.label.status.accepted" value="ACCEPTED"/>
+	 	<acme:form-option code ="employer.application.form.label.status.rejected" value="REJECTED"/>
+	</acme:form-select>
+	<acme:form-textbox code="employer.application.form.label.mandatoryJustification" path="mandatoryJustification" />
+	<acme:form-textarea readonly="true" code="employer.application.form.label.statement" path="statement" />
 	<acme:form-textbox readonly="true" code="employer.application.form.label.skills" path="skills" />
 	<acme:form-textbox readonly="true" code="employer.application.form.label.qualifications" path="qualifications" />
 	

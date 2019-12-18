@@ -549,11 +549,11 @@ Application
 --
 + reference:String {Unique,NotBlank,Lenght(min=5,max=10)}
 + creationMoment: Date {NotNull,Past}
-+ status: AppStatus {NotNull}
++ status: String {NotBlank}
 + statement: String {NotBlank}
 + skills: String {NotBlank}[0..*]
 + qualification: String {NotBlank}[0..*]
-
++ mandatoryJustification: String
 bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
