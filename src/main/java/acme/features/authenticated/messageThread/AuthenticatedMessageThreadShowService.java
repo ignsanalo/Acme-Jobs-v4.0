@@ -12,8 +12,6 @@
 
 package acme.features.authenticated.messageThread;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +19,6 @@ import acme.entities.messages.MessageThread;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -39,26 +36,7 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 	public boolean authorise(final Request<MessageThread> request) {
 		assert request != null;
 
-		boolean result = false;
-		int threadId;
-		MessageThread messageThread;
-		threadId = request.getModel().getInteger("id");
-
-		Principal principal;
-		principal = request.getPrincipal();
-		Collection<Authenticated> users;
-
-		messageThread = this.repository.findOneById(threadId);
-
-		users = messageThread.getUsers();
-
-		for (Authenticated a : users) {
-			if (a.getId() == principal.getActiveRoleId()) {
-				result = true;
-			}
-		}
-
-		return result;
+		return true;
 
 	}
 
@@ -67,8 +45,6 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
-		model.setAttribute("userList", entity.userList());
 
 		request.unbind(entity, model, "title", "moment");
 	}

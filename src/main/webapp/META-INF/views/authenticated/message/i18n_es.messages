@@ -14,8 +14,13 @@ authenticated.message.form.label.tags = Etiqueta:
 authenticated.message.form.label.body = Cuerpo:
 authenticated.message.form.label.message-thread = Hilo de mensaje:
 
+authenticated.message.label.accept = Confirmar
+
+authenticated.message.form.button.create = Crear
 authenticated.message.form.button.return = Volver
 
 authenticated.message.list.label.title = Título
 authenticated.message.list.label.moment = Momento
 authenticated.message.list.label.tags = Etiquetas
+
+authenticated.message.error.must-accept = Debe aceptar

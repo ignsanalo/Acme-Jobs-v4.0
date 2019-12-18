@@ -10,11 +10,10 @@ import acme.entities.messages.MessageThread;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedMessageThreadListMineService implements AbstractListService<Authenticated, MessageThread> {
+public class AuthenticatedMessageThreadListService implements AbstractListService<Authenticated, MessageThread> {
 
 	@Autowired
 	private AuthenticatedMessageThreadRepository repository;
@@ -43,13 +42,10 @@ public class AuthenticatedMessageThreadListMineService implements AbstractListSe
 		assert request != null;
 
 		Collection<MessageThread> result;
-		Principal principal;
 
-		principal = request.getPrincipal();
-		result = this.repository.findManyByAuthId(principal.getActiveRoleId());
+		result = this.repository.findManyAll();
 
 		return result;
-
 	}
 
 }
