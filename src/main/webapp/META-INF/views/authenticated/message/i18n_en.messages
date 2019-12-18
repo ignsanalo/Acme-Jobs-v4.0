@@ -23,3 +23,5 @@ authenticated.message.list.label.title = Title
 authenticated.message.list.label.tags = Tags
 authenticated.message.list.label.moment = Moment
 
+authenticated.message.error.must-accept = Must accept
+

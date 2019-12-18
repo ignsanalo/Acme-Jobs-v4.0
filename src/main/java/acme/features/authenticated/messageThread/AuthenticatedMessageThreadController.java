@@ -39,6 +39,9 @@ public class AuthenticatedMessageThreadController extends AbstractController<Aut
 	@Autowired
 	private AuthenticatedMessageThreadCreateService		createService;
 
+	@Autowired
+	private AuthenticatedMessageThreadListService		listService;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -48,6 +51,7 @@ public class AuthenticatedMessageThreadController extends AbstractController<Aut
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addBasicCommand(BasicCommand.LIST, this.listService);
 	}
 
 }

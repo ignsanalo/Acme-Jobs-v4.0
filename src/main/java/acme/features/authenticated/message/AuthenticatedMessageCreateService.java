@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.message;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,7 +47,13 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment", "tags", "body");
+		request.unbind(entity, model, "title", "tags", "body");
+		model.setAttribute("id", entity.getMessageThread().getId());
+		if (request.isMethod(HttpMethod.GET)) {
+			model.setAttribute("accept", "false");
+		} else {
+			request.transfer(model, "accept");
+		}
 
 	}
 
@@ -68,10 +76,22 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert errors != null;
 
+		boolean isAccepted;
+
+		isAccepted = request.getModel().getBoolean("accept");
+		errors.state(request, isAccepted, "accept", "authenticated.message.error.must-accept");
+
 	}
 
 	@Override
 	public void create(final Request<Message> request, final Message entity) {
+		assert request != null;
+		assert entity != null;
+
+		Date moment;
+
+		moment = new Date(System.currentTimeMillis() - 1);
+		entity.setMoment(moment);
 
 		this.repository.save(entity);
 

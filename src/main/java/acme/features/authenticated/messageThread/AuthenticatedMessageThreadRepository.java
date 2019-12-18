@@ -33,4 +33,7 @@ public interface AuthenticatedMessageThreadRepository extends AbstractRepository
 	@Query("select a from Authenticated a where a.id = ?1")
 	Authenticated findOneAuthenticatedById(int id);
 
+	@Query("select m from MessageThread m")
+	Collection<MessageThread> findManyAll();
+
 }
