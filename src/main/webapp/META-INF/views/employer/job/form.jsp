@@ -23,6 +23,8 @@
 	<acme:form-money code="employer.job.form.label.salary" path="salary" />
 	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo" />
 	<acme:form-textarea code="employer.job.form.label.description" path="description" />
+	<acme:form-textbox code="employer.job.form.label.finalMode" path="finalMode" />
+	
 
 	<acme:form-submit test="${command == 'show'}" code="employer.application.button.list" method="get" 
 		action="/employer/application/list-jobs-app?id=${id}"/>
@@ -39,7 +41,7 @@
 		action="/employer/job/delete" />
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create"
 		action="/employer/job/create" />
-	<acme:form-submit test="${command == 'update'}" code="employer.job.form.button.update"
+	<acme:form-submit test="${command == 'update' && !finalMode}" code="employer.job.form.button.update"
 		action="/employer/job/update" />
 	<acme:form-submit test="${command == 'delete'}" code="employer.job.form.button.delete"
 		action="/employer/job/delete" />

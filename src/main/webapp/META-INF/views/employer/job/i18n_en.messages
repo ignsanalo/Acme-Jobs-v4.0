@@ -21,6 +21,7 @@ employer.job.form.label.description = Description:
 
 employer.job.form.button.duty-list = List duties
 employer.application.button.list = List applications
+employer.job.form.label.finalMode=final mode
 
 employer.job.form.button.create = Create
 employer.job.form.button.update = Update
