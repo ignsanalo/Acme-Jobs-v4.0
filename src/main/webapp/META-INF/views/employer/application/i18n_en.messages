@@ -14,6 +14,10 @@ employer.application.form.label.status = Status:
 employer.application.form.label.statement = Statement:
 employer.application.form.label.skills = Skills:
 employer.application.form.label.qualifications = Qualifications:
+employer.application.form.label.mandatoryJustification = Justification:
+
+employer.application.form.label.status.rejected = Reject
+employer.application.form.label.status.accepted = Accept
 
 employer.application.form.button.update = Update
 
