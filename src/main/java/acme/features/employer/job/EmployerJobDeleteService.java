@@ -64,6 +64,11 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert errors != null;
 
+		Double aplications = this.repository.sumOfApplication(entity.getId());
+
+		Boolean aplicationsB = aplications == null || aplications > 1;
+
+		errors.state(request, aplicationsB, "finalMode", "employer.job.form.label.errorApli");
 	}
 
 	@Override
