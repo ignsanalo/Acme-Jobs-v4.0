@@ -21,5 +21,4 @@ public interface WorkerJobRepository extends AbstractRepository {
 
 	@Query("select j from Job j where (j.deadline >= ?1)")
 	Collection<Job> findManyJob(Date c);
-
 }

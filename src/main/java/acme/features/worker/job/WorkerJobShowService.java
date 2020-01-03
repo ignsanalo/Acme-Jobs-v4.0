@@ -21,6 +21,7 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 		return true;
+
 	}
 
 	@Override
