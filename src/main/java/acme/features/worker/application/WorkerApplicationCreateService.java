@@ -1,6 +1,7 @@
 
 package acme.features.worker.application;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +81,35 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		int principal;
+
+		principal = request.getPrincipal().getAccountId();
+
+		Application aplication = this.repository.findOneByWorkerId(principal);
+
+		String pass = aplication.getContrasena();
+
+		String ar[] = pass.split("");
+		int contadorLetras = (int) Arrays.asList(ar).stream().filter(x -> x.contains("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz")).count();
+		int contadorSimbolos = (int) Arrays.asList(ar).stream().filter(x -> x.contains("$@!%*?&¿¡!#")).count();
+		int contadorDigitos = (int) Arrays.asList(ar).stream().filter(x -> x.contains("0123456789")).count();
+
+		boolean letras, digitos, simbolos = false;
+
+		boolean isValid = false;
+
+		letras = contadorLetras >= 1;
+		digitos = contadorSimbolos >= 1;
+		simbolos = contadorDigitos >= 1;
+
+		if (letras == true && digitos == true && simbolos == true) {
+			isValid = true;
+		}
+
+		if (isValid == false) {
+			errors.state(request, isValid, "contrasena", "worker.application.form.error.contrasena");
+		}
 
 	}
 

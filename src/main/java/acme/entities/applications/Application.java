@@ -78,4 +78,7 @@ public class Application extends DomainEntity {
 	@ManyToOne(optional = false)
 	private Job		job;
 
+	@Length(min = 1, max = 20)
+	private String	contrasena;
+
 }

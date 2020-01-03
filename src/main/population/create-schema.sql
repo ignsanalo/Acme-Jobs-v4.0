@@ -26,6 +26,7 @@
     create table `application` (
        `id` integer not null,
         `version` integer not null,
+        `contrasena` varchar(255),
         `mandatory_justification` varchar(255),
         `moment` datetime(6),
         `qualifications` varchar(255),
@@ -170,6 +171,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `kind_challenge` (
+       `id` integer not null,
+        `version` integer not null,
+        `more_info` varchar(255),
+        `text` varchar(255),
+        `job_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `message` (
        `id` integer not null,
         `version` integer not null,
@@ -186,12 +196,8 @@
         `version` integer not null,
         `moment` datetime(6),
         `title` varchar(255),
+        `owner_id` integer not null,
         primary key (`id`)
-    ) engine=InnoDB;
-
-    create table `message_thread_authenticated` (
-       `message_thread_id` integer not null,
-        `users_id` integer not null
     ) engine=InnoDB;
 
     create table `offer` (
@@ -206,6 +212,14 @@
         `text` varchar(255),
         `ticker` varchar(255),
         `title` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `participates_in` (
+       `id` integer not null,
+        `version` integer not null,
+        `participant_id` integer not null,
+        `thread_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -355,19 +369,29 @@ create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
        foreign key (`employer_id`) 
        references `employer` (`id`);
 
+    alter table `kind_challenge` 
+       add constraint `FKh6u860nvjvgrrnrdt3kw7u8k4` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
+
     alter table `message` 
        add constraint `FKn5adlx3oqjna7aupm8gwg3fuj` 
        foreign key (`message_thread_id`) 
        references `message_thread` (`id`);
 
-    alter table `message_thread_authenticated` 
-       add constraint `FKsnymblhgu3dixq3t2qhptr4x2` 
-       foreign key (`users_id`) 
+    alter table `message_thread` 
+       add constraint `FKljabur1weonvmg511atm2ql6` 
+       foreign key (`owner_id`) 
        references `authenticated` (`id`);
 
-    alter table `message_thread_authenticated` 
-       add constraint `FKjb0tx79q4dpibs3mnkp6wfqvf` 
-       foreign key (`message_thread_id`) 
+    alter table `participates_in` 
+       add constraint `FKp8dubhjpvwx0mgn144chnj2ya` 
+       foreign key (`participant_id`) 
+       references `authenticated` (`id`);
+
+    alter table `participates_in` 
+       add constraint `FKm2o4n01mrot8y5d0nu0vbio7` 
+       foreign key (`thread_id`) 
        references `message_thread` (`id`);
 
     alter table `provider` 
