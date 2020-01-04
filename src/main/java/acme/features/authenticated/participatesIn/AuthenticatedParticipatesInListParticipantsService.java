@@ -48,7 +48,6 @@ public class AuthenticatedParticipatesInListParticipantsService implements Abstr
 		assert model != null;
 
 		request.unbind(entity, model, "participant", "participant.userAccount.username", "participant.userAccount.identity.fullName", "thread");
-		model.setAttribute("threadId", entity.getThread().getId());
 	}
 
 	@Override

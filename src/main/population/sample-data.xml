@@ -567,6 +567,30 @@
 	
 	<!-- Authenticated 2 -->
 	
+	<bean name="ManuAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="ManuUserAccount" />
+	</bean>
+	
+	
+	<bean name="ManuUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="Manuel" />
+		<property name="password" value="Manuel" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manuel" />
+				<property name="surname" value="Rubio" />
+				<property name="email" value="manuel@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="ManuAuthenticated" />
+
+			</list>
+		</property>
+	</bean>
+	
 	
 
 	<!-- MessageThreads -->
@@ -591,7 +615,7 @@
 	<!-- Participants -->
 	
 	<bean name="Participant1" class="acme.entities.messages.ParticipatesIn">
-		<property name="participant" ref="AlvaroAuthenticated"/>
+		<property name="participant" ref="ManuAuthenticated"/>
 		<property name="thread" ref="MessageThread1"/>
 	</bean>
 
