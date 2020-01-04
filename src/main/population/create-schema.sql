@@ -171,15 +171,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `kind_challenge` (
-       `id` integer not null,
-        `version` integer not null,
-        `more_info` varchar(255),
-        `text` varchar(255),
-        `job_id` integer,
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `message` (
        `id` integer not null,
         `version` integer not null,
@@ -220,6 +211,15 @@
         `version` integer not null,
         `participant_id` integer not null,
         `thread_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `problem` (
+       `id` integer not null,
+        `version` integer not null,
+        `more_info` varchar(255),
+        `text` varchar(255),
+        `job_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -369,11 +369,6 @@ create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
        foreign key (`employer_id`) 
        references `employer` (`id`);
 
-    alter table `kind_challenge` 
-       add constraint `FKh6u860nvjvgrrnrdt3kw7u8k4` 
-       foreign key (`job_id`) 
-       references `job` (`id`);
-
     alter table `message` 
        add constraint `FKn5adlx3oqjna7aupm8gwg3fuj` 
        foreign key (`message_thread_id`) 
@@ -393,6 +388,11 @@ create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
        add constraint `FKm2o4n01mrot8y5d0nu0vbio7` 
        foreign key (`thread_id`) 
        references `message_thread` (`id`);
+
+    alter table `problem` 
+       add constraint `FK61q7yf0k3b5ra7na9n9f666qf` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 

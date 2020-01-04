@@ -1,11 +1,10 @@
 
-package acme.entities.kind_challenge;
+package acme.entities.problem;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -18,7 +17,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Kind_challenge extends DomainEntity {
+public class Problem extends DomainEntity {
 
 	/**
 	 *
@@ -32,9 +31,8 @@ public class Kind_challenge extends DomainEntity {
 	@URL
 	private String				moreInfo;
 
-	@NotNull
 	@Valid
-	@ManyToOne(optional = true)
+	@OneToOne(optional = true)
 	private Job					job;
 
 }

@@ -51,10 +51,6 @@
        drop 
        foreign key `FK3rxjf8uh6fh2u990pe8i2at0e`;
 
-    alter table `kind_challenge` 
-       drop 
-       foreign key `FKh6u860nvjvgrrnrdt3kw7u8k4`;
-
     alter table `message` 
        drop 
        foreign key `FKn5adlx3oqjna7aupm8gwg3fuj`;
@@ -70,6 +66,10 @@
     alter table `participates_in` 
        drop 
        foreign key `FKm2o4n01mrot8y5d0nu0vbio7`;
+
+    alter table `problem` 
+       drop 
+       foreign key `FK61q7yf0k3b5ra7na9n9f666qf`;
 
     alter table `provider` 
        drop 
@@ -111,8 +111,6 @@
 
     drop table if exists `job`;
 
-    drop table if exists `kind_challenge`;
-
     drop table if exists `message`;
 
     drop table if exists `message_thread`;
@@ -120,6 +118,8 @@
     drop table if exists `offer`;
 
     drop table if exists `participates_in`;
+
+    drop table if exists `problem`;
 
     drop table if exists `provider`;
 
