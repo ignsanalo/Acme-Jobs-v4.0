@@ -24,6 +24,7 @@ public class WorkerJobListService implements AbstractListService<Worker, Job> {
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
+
 		return true;
 	}
 
