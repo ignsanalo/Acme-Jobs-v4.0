@@ -24,7 +24,6 @@ public class WorkerJobListService implements AbstractListService<Worker, Job> {
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
-
 		return true;
 	}
 
@@ -46,7 +45,7 @@ public class WorkerJobListService implements AbstractListService<Worker, Job> {
 
 		Date c = Calendar.getInstance().getTime();
 
-		result = this.repository.findManyJob(c);
+		result = this.repository.findManyAllActive(c);
 
 		return result;
 	}
