@@ -587,6 +587,13 @@
 		<property name="body" value="Este es el cuerpo del mensaje" />
 		<property name="messageThread" ref="MessageThread1"/>
 	</bean>
+	
+	<!-- Participants -->
+	
+	<bean name="Participant1" class="acme.entities.messages.ParticipatesIn">
+		<property name="participant" ref="AlvaroAuthenticated"/>
+		<property name="thread" ref="MessageThread1"/>
+	</bean>
 
 
 </beans>
