@@ -18,6 +18,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.messages.MessageThread;
+import acme.entities.messages.ParticipatesIn;
 import acme.framework.entities.Authenticated;
 import acme.framework.repositories.AbstractRepository;
 
@@ -35,5 +36,8 @@ public interface AuthenticatedMessageThreadRepository extends AbstractRepository
 
 	@Query("select m from MessageThread m")
 	Collection<MessageThread> findManyAll();
+
+	@Query("select pi from ParticipatesIn pi where pi.thread.id = ?1")
+	Collection<ParticipatesIn> findManyParticipatesInByThreadId(int id);
 
 }
