@@ -48,7 +48,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "statement", "skills", "qualifications", "mandatoryJustification");
+		request.unbind(entity, model, "reference", "status", "statement", "skills", "qualifications", "mandatoryJustification", "answer", "password");
 		model.setAttribute("id", entity.getJob().getId());
 	}
 
@@ -74,6 +74,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		result.setMandatoryJustification("");
 
 		return result;
+
 	}
 
 	@Override
@@ -100,6 +101,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		Date moment;
 
 		moment = new Date(System.currentTimeMillis() - 1);
+
 		entity.setMoment(moment);
 		this.repository.save(entity);
 

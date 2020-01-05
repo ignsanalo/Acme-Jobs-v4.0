@@ -2,7 +2,7 @@
 package acme.entities.XXXX1;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -27,17 +27,17 @@ public class XXXX1 extends DomainEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max = 280)
+	@Length(max = 280) //XXXX2 caracteres de largo
 	private String				text;
 
 	@URL
-	private String				moreInfo;
+	private String				moreInfo; //XXXX3 
 
 	// Relationships ----------------------------------------------------------------------
 
 	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
+	@OneToOne(optional = false)
 	private Job					job;
 
 }
