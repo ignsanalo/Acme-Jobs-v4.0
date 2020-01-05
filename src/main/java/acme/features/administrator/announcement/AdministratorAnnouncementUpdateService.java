@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.announcements.Announcement;
+import acme.entities.configuration.Configuration;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -67,6 +68,15 @@ public class AdministratorAnnouncementUpdateService implements AbstractUpdateSer
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Configuration config;
+		config = this.repository.findManyConfiguration().stream().findFirst().get();
+
+		if (!errors.hasErrors("text")) {
+			boolean isSpam = config.isSpam(entity.getText());
+			errors.state(request, !isSpam, "text", "administrator.annoucement.error.spam");
+		}
+
 	}
 
 	@Override

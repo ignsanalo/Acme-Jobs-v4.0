@@ -4,6 +4,7 @@ package acme.features.employer.job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -68,10 +69,23 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 	}
 
 	@Override
-	public void validate(final Request<Job> request, final Job entity, final Errors error) {
+	public void validate(final Request<Job> request, final Job entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
-		assert error != null;
+		assert errors != null;
+
+		Configuration config;
+		config = this.repository.findManyConfiguration().stream().findFirst().get();
+
+		if (!errors.hasErrors("title")) {
+			boolean isSpam = config.isSpam(entity.getTitle());
+			errors.state(request, !isSpam, "title", "employer.job.error.spam");
+		}
+
+		if (!errors.hasErrors("description")) {
+			boolean isSpam = config.isSpam(entity.getDescription());
+			errors.state(request, !isSpam, "description", "employer.job.error.spam");
+		}
 
 	}
 

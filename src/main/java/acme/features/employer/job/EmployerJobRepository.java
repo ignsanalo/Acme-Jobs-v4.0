@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.repositories.AbstractRepository;
@@ -27,5 +28,8 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("select e from Employer e where e.id = ?1")
 	Employer findOneEmployerById(int employerId);
+
+	@Query("select c from Configuration c")
+	Collection<Configuration> findManyConfiguration();
 
 }
