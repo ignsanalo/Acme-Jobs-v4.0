@@ -30,8 +30,6 @@ public class AuthenticatedParticipatesInAddParticipantService implements Abstrac
 
 		Principal principal = request.getPrincipal();
 
-		// Sería interesante ponerle aquí el doble flujo de get y post para ahorrar problemas
-
 		MessageThread messageThread = this.repository.findMessageThreadById(request.getModel().getInteger("threadId"));
 
 		result = messageThread.getOwner().getId() == principal.getActiveRoleId();

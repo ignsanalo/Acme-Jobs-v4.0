@@ -16,5 +16,6 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.participates-in.list.label.title" path="participant" width="50%" />
+  <acme:list-column code="authenticated.participates-in.list.label.username" path="participant.userAccount.username" width="50%"/>
+  <acme:list-column code="authenticated.participates-in.list.label.fullname" path="participant.userAccount.identity.fullName" width="50%"/>
 </acme:list>

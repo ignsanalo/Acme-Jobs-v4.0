@@ -16,6 +16,8 @@ authenticated.messageThread.form.label.users = Usuarios:
 authenticated.messageThread.form.label.show-messages = Mensajes
 authenticated.messageThread.form.button.create = Crear
 authenticated.message.form.label.create = Crear mensaje
+authenticated.message-thread.form.button.list-participants = List participants
+authenticated.participates-in.form.button.add-participant = Añadir participante
 
 authenticated.messageThread.form.button.return = Volver
 

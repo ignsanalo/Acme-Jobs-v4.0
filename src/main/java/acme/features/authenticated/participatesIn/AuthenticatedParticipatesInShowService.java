@@ -34,16 +34,6 @@ public class AuthenticatedParticipatesInShowService implements AbstractShowServi
 
 		Collection<ParticipatesIn> participants = this.repository.findManyByThreadId(participatesIn.getThread().getId());
 
-		/*
-		 *
-		 * elreyrata 16.12.19
-		 *
-		 * Una opción mejor sería buscar que ParticipatesIn tienen el par del thread al que apunto
-		 * y el usuario que consulta, pero, de momento, por hacer consistente el código y mantener
-		 * la forma que hemos tenido de tratar estas cuestiones, lo mantendremos así
-		 *
-		 */
-
 		isOwner = participatesIn.getThread().getOwner().getId() == principal.getActiveRoleId();
 		isParticipant = participants.stream().anyMatch(p -> p.getParticipant().getId() == principal.getActiveRoleId());
 

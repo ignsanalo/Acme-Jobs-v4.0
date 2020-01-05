@@ -8,6 +8,7 @@ import acme.entities.duties.Duty;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -20,7 +21,19 @@ public class AuthenticatedDutyShowService implements AbstractShowService<Authent
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
-		return true;
+
+		boolean result = false;
+		int dutyId;
+		Duty currentDuty;
+		Principal principal;
+
+		dutyId = request.getModel().getInteger("id");
+		currentDuty = this.repository.findOneById(dutyId);
+		principal = request.getPrincipal();
+
+		result = currentDuty.getJob().isFinalMode() == true || currentDuty.getJob().isFinalMode() == false && currentDuty.getJob().getEmployer().getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
