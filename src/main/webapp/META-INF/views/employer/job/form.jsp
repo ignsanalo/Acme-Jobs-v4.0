@@ -36,7 +36,7 @@
 	<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.duty-list" method="get" 
 		action="/employer/duty/list-by-job?id=${id}"/>
 
-	<acme:form-submit test="${command == 'show'}" code="auditor.job.form.label.auditRecord" method="get" 
+	<acme:form-submit test="${command == 'show'}" code="employer.job.form.label.auditRecord" method="get" 
 	action="/employer/auditrecord/list-by-job?id=${id}"/>
 	
 	<acme:form-submit test="${command == 'show' && !finalMode}" code="employer.job.form.button.update"

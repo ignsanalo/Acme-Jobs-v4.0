@@ -8,6 +8,7 @@ import acme.entities.jobs.Job;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -21,7 +22,19 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		return true;
+		boolean result = false;
+		int jobId;
+		Job currentJob;
+		Principal principal;
+
+		jobId = request.getModel().getInteger("id");
+		currentJob = this.repository.findOneJobById(jobId);
+		principal = request.getPrincipal();
+
+		result = currentJob.isFinalMode() == true || currentJob.isFinalMode() == false && currentJob.getEmployer().getUserAccount().getId() == principal.getAccountId();
+
+		return result;
+
 	}
 
 	@Override
