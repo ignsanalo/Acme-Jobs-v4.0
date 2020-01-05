@@ -26,8 +26,11 @@
     create table `application` (
        `id` integer not null,
         `version` integer not null,
+        `answer` varchar(255),
         `mandatory_justification` varchar(255),
         `moment` datetime(6),
+        `password` varchar(255),
+        `protegido` varchar(255),
         `qualifications` varchar(255),
         `reference` varchar(255),
         `skills` varchar(255),
@@ -302,6 +305,9 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
 create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
+
+    alter table `xxxx1` 
+       add constraint UK_i2qt665lplguvu6lvrlntdf5q unique (`job_id`);
 
     alter table `administrator` 
        add constraint FK_2a5vcjo3stlfcwadosjfq49l1 

@@ -21,6 +21,25 @@
 	<acme:form-textbox code="worker.application.form.label.skills" path="skills" />
 	<acme:form-textbox code="worker.application.form.label.qualifications" path="qualifications" />
 	<acme:form-textarea readonly="true" code="worker.application.form.label.mandatoryJustification" path="mandatoryJustification" />
+	<acme:form-textbox code="worker.application.form.label.answer" path="answer" />
+	
+	<jstl:if test="${command == 'create'}">
+		<acme:form-textbox code="worker.application.form.label.password" path="password" />
+		<acme:form-textbox code="worker.application.form.label.protegido" path="protegido" />
+	</jstl:if>
+	
+	<jstl:if test="${command != 'create'}">
+		<jstl:if test="${password ==''}">
+			<acme:form-textbox code="worker.application.form.label.protegido" path="protegido" />
+		</jstl:if>
+		<jstl:if test="${password!=''}">
+			<acme:form-password code="worker.application.form.label.password" path="password" />
+			<acme:form-password code="worker.application.form.label.protegido" path="protegido" />
+		</jstl:if>
+	</jstl:if>
+	
 	<acme:form-submit test="${command =='create' }" code="worker.application.form.button.create" action="/worker/application/create?id=${id}" />
+	
+     	
 	<acme:form-return code="worker.application.form.button.return" />
 </acme:form>
