@@ -342,6 +342,9 @@
 		<property name="mandatoryJustification" value="" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job1" />
+		<property name="answer" value="answer1" />
+		<property name="password" value="AA11$$" />
+		<property name="protegido" value="This is protected" />
 	</bean>
 	
 	<bean name="application2" class="acme.entities.applications.Application">
@@ -353,7 +356,10 @@
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
 		<property name="worker" ref="worker1Worker" />
-		<property name="job" ref="job1" />		
+		<property name="job" ref="job1" />
+		<property name="answer" value="answer2" />
+		<property name="password" value="AA22$$" />	
+		<property name="protegido" value="This is protected too" />	
 	</bean>
 	
 	<bean name="application3" class="acme.entities.applications.Application">
@@ -366,6 +372,9 @@
 		<property name="mandatoryJustification" value="" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job2" />
+		<property name="answer" value="answer3" />
+		<property name="password" value="AA33$$" />
+		<property name="protegido" value="This is very protected" />	
 	</bean>
 	
 	<!-- Employers -->

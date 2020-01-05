@@ -541,8 +541,8 @@ lt=x-&gt;
     <coordinates>
       <x>1116</x>
       <y>639</y>
-      <w>288</w>
-      <h>135</h>
+      <w>306</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Application
@@ -554,6 +554,9 @@ Application
 + skills: String {NotBlank}[0..*]
 + qualification: String {NotBlank}[0..*]
 + mandatoryJustification: String
++ answer: String
++ password: String {Pattern(regexp = "(^$|^(?=(.*[a-zA-Z].*){2,})(?=(.*\\d.*){2,})(?=(.*\\W.*){2,})[a-zA-Z0-9\\S]{5,}$)")}
++ protegido: String
 bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
@@ -924,5 +927,96 @@ lt=&lt;-x
 
 m2=1</panel_attributes>
     <additional_attributes>910.0;80.0;910.0;30.0;10.0;20.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1701</x>
+      <y>639</y>
+      <w>252</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+XXXX1
+--
++ text: String {NotBlank, Length(max=280)}
++ moreInfo: String {URL}
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>927</x>
+      <y>567</y>
+      <w>126</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>693</x>
+      <y>891</y>
+      <w>1152</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;1260.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1818</x>
+      <y>711</y>
+      <w>45</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>693</x>
+      <y>810</y>
+      <w>36</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>1818</x>
+      <y>720</y>
+      <w>18</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>type=termination</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>414</x>
+      <y>954</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Dashboard
+--
++ jobsRatio: Float
++ answerRatio: Float
++ protectedRadio: Float</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
