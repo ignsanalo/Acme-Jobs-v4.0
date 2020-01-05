@@ -18,6 +18,7 @@ import java.util.Date;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.requests.Requests;
 import acme.framework.repositories.AbstractRepository;
 
@@ -32,5 +33,8 @@ public interface ProviderRequestsRepository extends AbstractRepository {
 
 	@Query("select r from Requests r where (r.deadline >= ?1)")
 	Collection<Requests> findManyAll(Date c);
+
+	@Query("select c from Configuration c")
+	Collection<Configuration> findManyConfiguration();
 
 }

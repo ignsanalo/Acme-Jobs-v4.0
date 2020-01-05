@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.applications.Application;
+import acme.entities.configuration.Configuration;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
 import acme.framework.entities.UserAccount;
@@ -29,5 +30,8 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 
 	@Query("select ua from UserAccount ua where ua.id =?1")
 	UserAccount findOneUserAccountById(int userAccountId);
+
+	@Query("select c from Configuration c")
+	Collection<Configuration> findManyConfiguration();
 
 }
