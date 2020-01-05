@@ -14,6 +14,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -65,6 +66,13 @@ public class Application extends DomainEntity {
 	private String	qualifications;
 
 	private String	mandatoryJustification;
+
+	@Pattern(regexp = "(^$|^(?=(.*[a-zA-Z].*){2,})(?=(.*\\d.*){2,})(?=(.*\\W.*){2,})[a-zA-Z0-9\\S]{8,}$)")
+	private String	password;
+
+	private String	answer;
+
+	private String	protegido;
 
 	// Relationships ----------------------------------------------------------------------
 

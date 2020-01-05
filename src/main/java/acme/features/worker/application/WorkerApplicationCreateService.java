@@ -48,7 +48,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "statement", "skills", "qualifications", "mandatoryJustification");
+		request.unbind(entity, model, "reference", "status", "statement", "skills", "qualifications", "mandatoryJustification", "password", "answer", "protegido");
 		model.setAttribute("id", entity.getJob().getId());
 	}
 

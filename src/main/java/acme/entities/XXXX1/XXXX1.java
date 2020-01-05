@@ -2,7 +2,7 @@
 package acme.entities.XXXX1;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -37,7 +37,7 @@ public class XXXX1 extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
+	@OneToOne(optional = false)
 	private Job					job;
 
 }

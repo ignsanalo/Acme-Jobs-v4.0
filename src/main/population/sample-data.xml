@@ -340,6 +340,9 @@
 		<property name="skills" value="Easy to use" />
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
+		<property name="password" value="aaa333..." />
+		<property name="answer" value="respuestaa jasdjiasdj" />
+		<property name="protegido" value="ssssssss" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job1" />
 	</bean>
@@ -352,6 +355,9 @@
 		<property name="skills" value="Easy to use" />
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
+		<property name="password" value="aaa333..." />
+		<property name="answer" value="respuestaa jasdjiasdj" />
+		<property name="protegido" value="ssssssss" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job1" />		
 	</bean>
@@ -364,6 +370,9 @@
 		<property name="skills" value="Easy to use" />
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
+		<property name="password" value="aaa333..." />
+		<property name="answer" value="respuestaa jasdjiasdj" />
+		<property name="protegido" value="ssssssss" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job2" />
 	</bean>
