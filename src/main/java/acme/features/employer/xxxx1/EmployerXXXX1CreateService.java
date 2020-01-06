@@ -49,7 +49,7 @@ public class EmployerXXXX1CreateService implements AbstractCreateService<Employe
 		assert model != null;
 
 		request.unbind(entity, model, "text", "moreInfo");
-		model.setAttribute("id", entity.getJob().getId());
+		model.setAttribute("jobId", entity.getJob().getId());
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class EmployerXXXX1CreateService implements AbstractCreateService<Employe
 
 		principal = request.getPrincipal();
 		userAccountId = principal.getActiveRoleId();
-		jobId = request.getModel().getInteger("id");
+		jobId = request.getModel().getInteger("jobId");
 		Employer employer = this.jobRepository.findOneEmployerById(userAccountId);
 		Job job = this.jobRepository.findOneJobById(jobId);
 
