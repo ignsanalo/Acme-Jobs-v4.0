@@ -129,6 +129,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `dashboard` (
+       `id` integer not null,
+        `version` integer not null,
+        `answer_ratio` float,
+        `jobs_ratio` float,
+        `protected_ratio` float,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `duty` (
        `id` integer not null,
         `version` integer not null,
