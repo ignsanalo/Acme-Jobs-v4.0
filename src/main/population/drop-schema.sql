@@ -103,6 +103,8 @@
 
     drop table if exists `consumer`;
 
+    drop table if exists `dashboard`;
+
     drop table if exists `duty`;
 
     drop table if exists `employer`;

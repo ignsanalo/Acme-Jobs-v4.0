@@ -50,6 +50,7 @@ master.menu.anonymous.companyrecord.list = Listar registro de compañias
 
 master.menu.administrator = Administrador
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.dashboard = Tablero
 master.menu.administrator.shutdown = Parar el sistema
 master.menu.administrator.announcement.list = Listar anuncios
 master.menu.administrator.announcement.create = Crear anuncios
