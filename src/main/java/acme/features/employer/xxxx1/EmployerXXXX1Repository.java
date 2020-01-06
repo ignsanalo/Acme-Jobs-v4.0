@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.XXXX1.XXXX1;
+import acme.entities.xxxx1.XXXX1;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -20,5 +20,11 @@ public interface EmployerXXXX1Repository extends AbstractRepository {
 
 	@Query("select r from XXXX1 r")
 	Collection<XXXX1> findAllXXXX1s();
+
+	//	@Query("select e from Employer e where e.id = ?1")
+	//	Employer findXXXX1EmployerById(int employerId);
+	//
+	//	@Query("select j from Job j where j.id = ?1")
+	//	Job findXXXX1JobById(int id);
 
 }

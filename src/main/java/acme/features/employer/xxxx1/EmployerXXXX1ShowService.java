@@ -4,8 +4,8 @@ package acme.features.employer.xxxx1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.XXXX1.XXXX1;
 import acme.entities.roles.Employer;
+import acme.entities.xxxx1.XXXX1;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.services.AbstractShowService;

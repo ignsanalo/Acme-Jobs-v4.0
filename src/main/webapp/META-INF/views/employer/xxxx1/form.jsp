@@ -21,7 +21,7 @@
 	
 	<jstl:if test="${command == 'create'}">
 		<acme:form-submit test="${command == 'create'}" code="employer.xxxx1.form.button.create"
-		action="/employer/xxxx1/create" />
+		action="/employer/xxxx1/create?id=${id}" />
 	</jstl:if>
 	
 
