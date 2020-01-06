@@ -1,5 +1,5 @@
 
-package acme.entities.XXXX1;
+package acme.entities.xxxx1;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
