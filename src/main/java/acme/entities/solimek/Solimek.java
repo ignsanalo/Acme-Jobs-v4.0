@@ -1,5 +1,5 @@
 
-package acme.entities.requisito;
+package acme.entities.solimek;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Requisito extends DomainEntity {
+public class Solimek extends DomainEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -27,11 +27,11 @@ public class Requisito extends DomainEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max = 280) //XXXX2 caracteres de largo
+	@Length(max = 256)
 	private String				text;
 
 	@URL
-	private String				moreInfo; //XXXX3
+	private String				moreInfo;
 
 	// Relationships ----------------------------------------------------------------------
 

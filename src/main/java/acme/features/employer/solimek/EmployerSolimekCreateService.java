@@ -1,12 +1,12 @@
 
-package acme.features.employer.requisito;
+package acme.features.employer.solimek;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
-import acme.entities.requisito.Requisito;
 import acme.entities.roles.Employer;
+import acme.entities.solimek.Solimek;
 import acme.features.employer.job.EmployerJobRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -17,23 +17,23 @@ import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class EmployerRequisitoCreateService implements AbstractCreateService<Employer, Requisito> {
+public class EmployerSolimekCreateService implements AbstractCreateService<Employer, Solimek> {
 
 	@Autowired
-	EmployerRequisitoRepository	repository;
+	EmployerSolimekRepository	repository;
 
 	@Autowired
 	EmployerJobRepository		jobRepository;
 
 
 	@Override
-	public boolean authorise(final Request<Requisito> request) {
+	public boolean authorise(final Request<Solimek> request) {
 		assert request != null;
 		return true;
 	}
 
 	@Override
-	public void bind(final Request<Requisito> request, final Requisito entity, final Errors errors) {
+	public void bind(final Request<Solimek> request, final Solimek entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -42,7 +42,7 @@ public class EmployerRequisitoCreateService implements AbstractCreateService<Emp
 	}
 
 	@Override
-	public void unbind(final Request<Requisito> request, final Requisito entity, final Model model) {
+	public void unbind(final Request<Solimek> request, final Solimek entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -52,10 +52,10 @@ public class EmployerRequisitoCreateService implements AbstractCreateService<Emp
 	}
 
 	@Override
-	public Requisito instantiate(final Request<Requisito> request) {
+	public Solimek instantiate(final Request<Solimek> request) {
 		assert request != null;
 
-		Requisito result = new Requisito();
+		Solimek result = new Solimek();
 
 		int jobId;
 
@@ -70,27 +70,14 @@ public class EmployerRequisitoCreateService implements AbstractCreateService<Emp
 	}
 
 	@Override
-	public void validate(final Request<Requisito> request, final Requisito entity, final Errors errors) {
+	public void validate(final Request<Solimek> request, final Solimek entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		//		int jobId = request.getModel().getInteger("jobId");
-		//		Job job = this.jobRepository.findOneJobById(jobId);
-		//
-		//		Collection<XXXX1> XXXX1s = this.repository.findAllXXXX1s();
-		//
-		//		Boolean isValid;
-		//		if (!errors.hasErrors("moreInfo")) {
-		//			for (XXXX1 p : XXXX1s) {
-		//				isValid = !p.getJob().equals(job);
-		//				errors.state(request, isValid, "moreInfo", "employer.XXXX1.form.error.notcreate");
-		//			}
-		//		}
 	}
 
 	@Override
-	public void create(final Request<Requisito> request, final Requisito entity) {
+	public void create(final Request<Solimek> request, final Solimek entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -98,7 +85,7 @@ public class EmployerRequisitoCreateService implements AbstractCreateService<Emp
 	}
 
 	@Override
-	public void onSuccess(final Request<Requisito> request, final Response<Requisito> response) {
+	public void onSuccess(final Request<Solimek> request, final Response<Solimek> response) {
 		assert request != null;
 		assert response != null;
 

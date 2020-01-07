@@ -216,10 +216,10 @@
 	</bean>
 
 
-	
-	
+
+
 	<!-- Workers -->
-	
+
 	<bean name="worker1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="worker1" />
 		<property name="password" value="worker1" />
@@ -238,19 +238,19 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean name="worker1Worker" class="acme.entities.roles.Worker">
 		<property name="qualifications" value="Good worker" />
 		<property name="skills" value="Hardworking" />
 		<property name="userAccount" ref="worker1UserAccount" />
 	</bean>
-	
+
 	<bean name="worker1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="worker1UserAccount" />
-	</bean>	
-	
+	</bean>
+
 	<!-- Auditors -->
-	
+
 	<bean name="auditor1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="auditor1" />
 		<property name="password" value="auditor1" />
@@ -307,9 +307,9 @@
 	<bean name="auditor2Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="auditor2UserAccount" />
 	</bean>
-	
+
 	<!-- AuditorRecords -->
-	
+
 	<bean name="auditrecord1" class="acme.entities.auditrecords.Auditrecord">
 		<property name="title" value="auditR1" />
 		<property name="moment" value="2001/12/11 23:59" />
@@ -317,8 +317,8 @@
 		<property name="finalMode" value="true" />
 		<property name="auditor" ref="auditor1Auditor" />
 		<property name="job" ref="job1" />
-		
-		
+
+
 	</bean>
 	<bean name="auditrecord2" class="acme.entities.auditrecords.Auditrecord">
 		<property name="title" value="auditR2" />
@@ -328,10 +328,10 @@
 		<property name="auditor" ref="auditor2Auditor" />
 		<property name="job" ref="job2" />
 	</bean>
-	
-	
+
+
 	<!-- Application -->
-	
+
 	<bean name="application1" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-APP1:WOR1" />
 		<property name="moment" value="2019/11/11 22:35" />
@@ -341,12 +341,12 @@
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
 		<property name="answer" value="this is an answer" />
-		<property name="password" value="Abc123.,:" />
-		<property name="protegido" value="Protected" />
+		<property name="password" value="XVGA8432.,:" />
+		<property name="ticket" value="DGD473" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job1" />
 	</bean>
-	
+
 	<bean name="application2" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-APP2:WOR2" />
 		<property name="moment" value="2019/12/1 16:00" />
@@ -356,12 +356,12 @@
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
 		<property name="answer" value="this is an answer" />
-		<property name="password" value="ABCD123.,-" />
-		<property name="protegido" value="Protected" />
+		<property name="password" value="ABCD1234.,-" />
+		<property name="ticket" value="HDG263" />
 		<property name="worker" ref="worker1Worker" />
-		<property name="job" ref="job1" />		
+		<property name="job" ref="job1" />
 	</bean>
-	
+
 	<bean name="application3" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-APP3:WOR3" />
 		<property name="moment" value="2019/11/27 13:53" />
@@ -371,12 +371,12 @@
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
 		<property name="answer" value="this is an answer" />
-		<property name="password" value="ABc567..." />
-		<property name="protegido" value="Protected" />
+		<property name="password" value="" />
+		<property name="ticket" value="ADGS67" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job2" />
 	</bean>
-	
+
 	<!-- Employers -->
 
 	<bean name="employer1UserAccount" class="acme.framework.entities.UserAccount">
@@ -407,7 +407,7 @@
 	<bean name="employer1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="employer1UserAccount" />
 	</bean>
-	
+
 	<bean name="employer2UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="employer2" />
 		<property name="password" value="employer2" />
@@ -436,8 +436,8 @@
 	<bean name="employer2Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="employer2UserAccount" />
 	</bean>
- 
-  	<!-- Jobs -->
+
+	<!-- Jobs -->
 
 	<bean name="job1" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB1" />
@@ -449,7 +449,7 @@
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer1Employer" />
 	</bean>
-  
+
 	<bean name="job2" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB2" />
 		<property name="title" value="Title 2" />
@@ -471,8 +471,8 @@
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer1Employer" />
 	</bean>
-	
-	
+
+
 	<bean name="job4" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB4" />
 		<property name="title" value="Title 4" />
@@ -483,7 +483,7 @@
 		<property name="finalMode" value="true" />
 		<property name="employer" ref="employer1Employer" />
 	</bean>
-	
+
 	<bean name="job5" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB5" />
 		<property name="title" value="Title 5" />
@@ -494,9 +494,9 @@
 		<property name="finalMode" value="false" />
 		<property name="employer" ref="employer1Employer" />
 	</bean>
-  
-  
-  <!-- Duty -->
+
+
+	<!-- Duty -->
 
 	<bean name="duty1" class="acme.entities.duties.Duty">
 		<property name="title" value="Title 1" />
@@ -518,21 +518,21 @@
 		<property name="percentage" value="30.0" />
 		<property name="job" ref="job3" />
 	</bean>
-	
+
 	<bean name="duty4" class="acme.entities.duties.Duty">
 		<property name="title" value="Title 4" />
 		<property name="description" value="Duty tutifruti4" />
 		<property name="percentage" value="40.0" />
 		<property name="job" ref="job5" />
 	</bean>
-	
+
 	<bean name="duty5" class="acme.entities.duties.Duty">
 		<property name="title" value="Title 5" />
 		<property name="description" value="Duty tutifruti5" />
 		<property name="percentage" value="30.0" />
 		<property name="job" ref="job5" />
 	</bean>
-	
+
 	<bean name="duty6" class="acme.entities.duties.Duty">
 		<property name="title" value="Title 6" />
 		<property name="description" value="Duty tutifruti6" />
@@ -540,14 +540,14 @@
 		<property name="job" ref="job5" />
 	</bean>
 
-	<!-- Authenticated  1-->
-	
-	
-<bean name="AlvaroAuthenticated" class="acme.framework.entities.Authenticated">
+	<!-- Authenticated 1 -->
+
+
+	<bean name="AlvaroAuthenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="AlvaroUserAccount" />
 	</bean>
-	
-	
+
+
 	<bean name="AlvaroUserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="Alvaro" />
 		<property name="password" value="Alvaro" />
@@ -567,20 +567,20 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean name="AlvaroEmployer" class="acme.entities.roles.Employer">
 		<property name="company" value="Employer 1, Inc." />
 		<property name="sector" value="Sector 1" />
 		<property name="userAccount" ref="AlvaroUserAccount" />
 	</bean>
-	
+
 	<!-- Authenticated 2 -->
-	
+
 	<bean name="ManuAuthenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="ManuUserAccount" />
 	</bean>
-	
-	
+
+
 	<bean name="ManuUserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="Manuel" />
 		<property name="password" value="Manuel" />
@@ -599,15 +599,15 @@
 			</list>
 		</property>
 	</bean>
-	
-	
+
+
 
 	<!-- MessageThreads -->
 
 	<bean name="MessageThread1" class="acme.entities.messages.MessageThread">
-		<property name="title" value="Primer Hilo"/>
+		<property name="title" value="Primer Hilo" />
 		<property name="moment" value="2019/11/12 19:59" />
-		<property name="owner" ref="AlvaroAuthenticated"/>
+		<property name="owner" ref="AlvaroAuthenticated" />
 	</bean>
 
 
@@ -618,21 +618,28 @@
 		<property name="moment" value="2019/09/09 10:30" />
 		<property name="tags" value="DP" />
 		<property name="body" value="Este es el cuerpo del mensaje" />
-		<property name="messageThread" ref="MessageThread1"/>
+		<property name="messageThread" ref="MessageThread1" />
 	</bean>
-	
+
 	<!-- Participants -->
-	
+
 	<bean name="Participant1" class="acme.entities.messages.ParticipatesIn">
-		<property name="participant" ref="ManuAuthenticated"/>
-		<property name="thread" ref="MessageThread1"/>
+		<property name="participant" ref="ManuAuthenticated" />
+		<property name="thread" ref="MessageThread1" />
 	</bean>
-	
-	<bean name="Requisito1" class="acme.entities.requisito.Requisito">
-		<property name="text" value="Requisito1" />
-		<property name="moreInfo" value="http://www.example.com" />
+
+	<!-- Solimek -->
+
+	<bean name="Solimek1" class="acme.entities.solimek.Solimek">
+		<property name="text" value="Solimek1" />
+		<property name="moreInfo" value="http://www.example1.com" />
 		<property name="job" ref="job1" />
-		
+	</bean>
+
+	<bean name="Solimek2" class="acme.entities.solimek.Solimek">
+		<property name="text" value="Solimek2" />
+		<property name="moreInfo" value="http://www.example2.com" />
+		<property name="job" ref="job2" />
 	</bean>
 
 

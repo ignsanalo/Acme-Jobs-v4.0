@@ -1,37 +1,37 @@
 
-package acme.features.employer.requisito;
+package acme.features.employer.solimek;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.requisito.Requisito;
 import acme.entities.roles.Employer;
+import acme.entities.solimek.Solimek;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class EmployerRequisitoShowService implements AbstractShowService<Employer, Requisito> {
+public class EmployerSolimekShowService implements AbstractShowService<Employer, Solimek> {
 
 	@Autowired
-	private EmployerRequisitoRepository repository;
+	private EmployerSolimekRepository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Requisito> request) {
+	public boolean authorise(final Request<Solimek> request) {
 		assert request != null;
 		boolean result;
 
-		int requisitoId;
-		Requisito requisito;
+		int solimekId;
+		Solimek solimek;
 		Employer employer;
 		Principal principal;
 
-		requisitoId = request.getModel().getInteger("id");
-		requisito = this.repository.findOneById(requisitoId);
+		solimekId = request.getModel().getInteger("id");
+		solimek = this.repository.findOneById(solimekId);
 
-		employer = requisito.getJob().getEmployer();
+		employer = solimek.getJob().getEmployer();
 		principal = request.getPrincipal();
 		result = employer.getUserAccount().getId() == principal.getAccountId();
 
@@ -39,7 +39,7 @@ public class EmployerRequisitoShowService implements AbstractShowService<Employe
 	}
 
 	@Override
-	public void unbind(final Request<Requisito> request, final Requisito entity, final Model model) {
+	public void unbind(final Request<Solimek> request, final Solimek entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -48,10 +48,10 @@ public class EmployerRequisitoShowService implements AbstractShowService<Employe
 	}
 
 	@Override
-	public Requisito findOne(final Request<Requisito> request) {
+	public Solimek findOne(final Request<Solimek> request) {
 		assert request != null;
 
-		Requisito result;
+		Solimek result;
 		int idJob;
 
 		idJob = request.getModel().getInteger("id");

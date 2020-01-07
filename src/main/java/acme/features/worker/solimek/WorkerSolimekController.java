@@ -1,5 +1,5 @@
 
-package acme.features.worker.requisito;
+package acme.features.worker.solimek;
 
 import javax.annotation.PostConstruct;
 
@@ -8,22 +8,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.components.CustomCommand;
-import acme.entities.requisito.Requisito;
 import acme.entities.roles.Worker;
+import acme.entities.solimek.Solimek;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/worker/requisito/")
-public class WorkerRequisitoController extends AbstractController<Worker, Requisito> {
+@RequestMapping("/worker/solimek/")
+public class WorkerSolimekController extends AbstractController<Worker, Solimek> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private WorkerRequisitoShowService		showService;
+	private WorkerSolimekShowService		showService;
 
 	@Autowired
-	private WorkerRequisitoListByJobService	listService;
+	private WorkerSolimekListByJobService	listService;
 
 
 	// Constructors -----------------------------------------------------------

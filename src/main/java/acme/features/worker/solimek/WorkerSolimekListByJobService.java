@@ -1,32 +1,32 @@
 
-package acme.features.worker.requisito;
+package acme.features.worker.solimek;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.requisito.Requisito;
 import acme.entities.roles.Worker;
+import acme.entities.solimek.Solimek;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class WorkerRequisitoListByJobService implements AbstractListService<Worker, Requisito> {
+public class WorkerSolimekListByJobService implements AbstractListService<Worker, Solimek> {
 
 	@Autowired
-	WorkerRequisitoRepository repository;
+	WorkerSolimekRepository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Requisito> request) {
+	public boolean authorise(final Request<Solimek> request) {
 		assert request != null;
 		return true;
 	}
 
 	@Override
-	public void unbind(final Request<Requisito> request, final Requisito entity, final Model model) {
+	public void unbind(final Request<Solimek> request, final Solimek entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -36,11 +36,11 @@ public class WorkerRequisitoListByJobService implements AbstractListService<Work
 	}
 
 	@Override
-	public Collection<Requisito> findMany(final Request<Requisito> request) {
+	public Collection<Solimek> findMany(final Request<Solimek> request) {
 
 		assert request != null;
 
-		Collection<Requisito> result;
+		Collection<Solimek> result;
 		Integer idJob;
 
 		idJob = request.getModel().getInteger("id");

@@ -1,4 +1,4 @@
-administrator.dashboard.form.jobsRatio = Ratio del trabajo:
+administrator.dashboard.form.jobsSolimekRatio = Ratio del trabajo que tienen un solimek:
 administrator.dashboard.form.answerRatio = Ratio de la respuesta:
-administrator.dashboard.form.protectedRatio = Ratio de aplicaciones protejidas:
+administrator.dashboard.form.applicationTicketRatio = Ratio de aplicaciones que tienen un ticket:
 administrator.dashboard.form.button.return = Volver

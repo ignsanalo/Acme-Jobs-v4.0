@@ -71,17 +71,13 @@
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
 
-    alter table `requisito` 
+    alter table `solimek` 
        drop 
-       foreign key `FKdpyv3jqwtksicvkwm7bhdswhk`;
+       foreign key `FK6bhu4i9wdv51b6jspj5omgnwj`;
 
     alter table `worker` 
        drop 
        foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
-
-    alter table `xxxx1` 
-       drop 
-       foreign key `FKivqoqgqubr8hn5quyvcmi324`;
 
     drop table if exists `administrator`;
 
@@ -129,12 +125,10 @@
 
     drop table if exists `requests`;
 
-    drop table if exists `requisito`;
+    drop table if exists `solimek`;
 
     drop table if exists `user_account`;
 
     drop table if exists `worker`;
-
-    drop table if exists `xxxx1`;
 
     drop table if exists `hibernate_sequence`;

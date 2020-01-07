@@ -25,16 +25,16 @@
 	
 	<jstl:if test="${command == 'create'}">
 		<acme:form-textbox code="worker.application.form.label.password" path="password" />
-		<acme:form-textbox code="worker.application.form.label.protegido" path="protegido" />
+		<acme:form-textbox code="worker.application.form.label.ticket" path="ticket" />
 	</jstl:if>
 	
 	<jstl:if test="${command != 'create'}">
 		<jstl:if test="${password ==''}">
-			<acme:form-textbox code="worker.application.form.label.protegido" path="protegido" />
+			<acme:form-textbox code="worker.application.form.label.ticket" path="ticket" />
 		</jstl:if>
 		<jstl:if test="${password!=''}">
 			<acme:form-password code="worker.application.form.label.password" path="password" />
-			<acme:form-password code="worker.application.form.label.protegido" path="protegido" />
+			<acme:form-password code="worker.application.form.label.ticket" path="ticket" />
 		</jstl:if>
 	</jstl:if>
 	

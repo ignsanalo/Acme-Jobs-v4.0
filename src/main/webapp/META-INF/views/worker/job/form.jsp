@@ -33,8 +33,8 @@
 	<acme:form-submit code="worker.job.application.form.button.apply" method="get"
 		action="/worker/application/create?id=${id}"/>
 		
-	<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.requisito-list" method="get" 
-		action="/worker/requisito/list-by-job?id=${id}"/>	
+	<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.solimek-list" method="get" 
+		action="/worker/solimek/list-by-job?id=${id}"/>	
 	
 	<acme:form-return code="worker.job.form.button.return" />
 	

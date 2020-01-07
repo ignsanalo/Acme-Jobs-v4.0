@@ -14,10 +14,10 @@ public class Dashboard extends DomainEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	private Float				jobsRatio;
+	private Float				jobsSolimekRatio;
 
 	private Float				answerRatio;
 
-	private Float				protectedRatio;
+	private Float				applicationTicketRatio;
 
 }

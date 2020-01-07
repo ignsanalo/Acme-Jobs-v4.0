@@ -555,8 +555,8 @@ Application
 + qualification: String {NotBlank}[0..*]
 + mandatoryJustification: String
 + answer: String
-+ password: String {Pattern(regexp = "(^$|^(?=(.*[a-zA-Z].*){2,})(?=(.*\\d.*){2,})(?=(.*\\W.*){2,})[a-zA-Z0-9\\S]{5,}$)")}
-+ protegido: String
++ password: String {Pattern(regexp = "(^$|^(?=(.*[a-zA-Z].*){1,})(?=(.*\\d.*){1,})(?=(.*\\W.*){1,})[a-zA-Z0-9\\S]{10,}$)")}
++ ticket: String
 bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
@@ -937,9 +937,9 @@ m2=1</panel_attributes>
       <h>81</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-XXXX1
+Solimek
 --
-+ text: String {NotBlank, Length(max=280)}
++ text: String {NotBlank, Length(max=256)}
 + moreInfo: String {URL}
 bg=yellow</panel_attributes>
     <additional_attributes/>
@@ -1014,9 +1014,9 @@ m1=1</panel_attributes>
     </coordinates>
     <panel_attributes>Dashboard
 --
-+ jobsRatio: Float
++ jobsSolimekRatio: Float
 + answerRatio: Float
-+ protectedRadio: Float</panel_attributes>
++ applicationTicketRatio: Float</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

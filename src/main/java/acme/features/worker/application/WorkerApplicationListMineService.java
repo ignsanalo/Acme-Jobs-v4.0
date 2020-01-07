@@ -48,6 +48,4 @@ public class WorkerApplicationListMineService implements AbstractListService<Wor
 
 		return result;
 	}
-	//ags
-
 }

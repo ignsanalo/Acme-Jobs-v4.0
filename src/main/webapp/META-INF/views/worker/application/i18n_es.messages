@@ -17,7 +17,7 @@ worker.application.form.label.qualifications = Calificaciones:
 worker.application.form.label.mandatoryJustification = Justificación:
 worker.application.form.label.answer = Respuesta:
 worker.application.form.label.password = Contraseña:
-worker.application.form.label.protegido = Protegido:
+worker.application.form.label.ticket = Ticket:
 
 worker.application.error.referenceFormat = El formato de la referencia debe ser: EMPX-JOBX:WORX
 
