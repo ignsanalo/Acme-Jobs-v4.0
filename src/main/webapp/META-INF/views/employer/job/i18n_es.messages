@@ -18,14 +18,20 @@ employer.job.form.label.deadline = Fecha límite:
 employer.job.form.label.salary = Salario:
 employer.job.form.label.moreInfo = Más info:
 employer.job.form.label.description = Descripción:
-employer.job.form.label.errorApli = No se puede borrar trabajos con aplicaciones
+employer.job.form.label.errorApli = No es posible eliminar trabajos con aplicaciones.
+employer.job.error.mensajeRechazo = No es posible publicar el trabajo.
 
 employer.application.button.list = Listar aplicaciones
-employer.job.form.button.duty-list = Listar tareas
+employer.job.form.button.requisito-list = Listar requisitos
+employer.job.form.label.auditRecord= Registros de auditoría
 employer.job.form.label.finalMode= modo final
+employer.job.form.button.requisito-create=Crear requisito
+employer.job.form.button.duty-list= Listar tareas
 
 employer.job.form.button.create = Crear
 employer.job.form.button.update = Actualizar
 employer.job.form.button.delete = Eliminar
+employer.xxxx1.form.button.create= Crear xxxx1
+employer.xxxx1.form.button.show= Crear xxxx1
 
 employer.job.form.button.return = Volver

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
+import acme.entities.configuration.Configuration;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -45,7 +46,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "moment", "status", "justificationMandatory", "statement", "skills", "qualifications");
+		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "mandatoryJustification");
 
 	}
 
@@ -73,6 +74,14 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 			Boolean mensajeRechazo = !entity.getMandatoryJustification().isEmpty() && entity.getStatus().equals("REJECTED") || entity.getStatus().equals("ACCEPTED");
 			errors.state(request, mensajeRechazo, "mandatoryJustification", "employer.application.error.mensajeRechazo");
 
+		}
+
+		Configuration config;
+		config = this.repository.findManyConfiguration().stream().findFirst().get();
+
+		if (!errors.hasErrors("mandatoryJustification")) {
+			boolean isSpam = config.isSpam(entity.getMandatoryJustification());
+			errors.state(request, !isSpam, "mandatoryJustification", "employer.applicaton.error.spam");
 		}
 	}
 

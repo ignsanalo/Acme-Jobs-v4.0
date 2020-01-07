@@ -8,6 +8,7 @@ import acme.entities.auditrecords.Auditrecord;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -22,15 +23,16 @@ public class AuthenticatedAuditrecordShowService implements AbstractShowService<
 
 		assert request != null;
 
-		boolean result;
+		boolean result = false;
+		int auditrecordId;
+		Auditrecord currentAuditrecord;
+		Principal principal;
 
-		int auditrecordID;
-		Auditrecord auditrecord;
+		auditrecordId = request.getModel().getInteger("id");
+		currentAuditrecord = this.repository.findOneAuditById(auditrecordId);
+		principal = request.getPrincipal();
 
-		auditrecordID = request.getModel().getInteger("id");
-		auditrecord = this.repository.findOneAuditById(auditrecordID);
-
-		result = auditrecord.isFinalMode();
+		result = currentAuditrecord.getJob().isFinalMode() == true || currentAuditrecord.getJob().isFinalMode() == false && currentAuditrecord.getJob().getEmployer().getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 

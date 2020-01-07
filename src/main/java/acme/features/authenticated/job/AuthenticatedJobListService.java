@@ -46,7 +46,7 @@ public class AuthenticatedJobListService implements AbstractListService<Authenti
 
 		Date c = Calendar.getInstance().getTime();
 
-		result = this.repository.findManyJob(c);
+		result = this.repository.findManyAllActive(c);
 
 		return result;
 

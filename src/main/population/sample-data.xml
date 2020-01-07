@@ -340,6 +340,9 @@
 		<property name="skills" value="Easy to use" />
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
+		<property name="answer" value="this is an answer" />
+		<property name="password" value="Abc123.,:" />
+		<property name="protegido" value="Protected" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job1" />
 	</bean>
@@ -352,6 +355,9 @@
 		<property name="skills" value="Easy to use" />
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
+		<property name="answer" value="this is an answer" />
+		<property name="password" value="ABCD123.,-" />
+		<property name="protegido" value="Protected" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job1" />		
 	</bean>
@@ -364,6 +370,9 @@
 		<property name="skills" value="Easy to use" />
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
+		<property name="answer" value="this is an answer" />
+		<property name="password" value="ABc567..." />
+		<property name="protegido" value="Protected" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job2" />
 	</bean>
@@ -567,6 +576,30 @@
 	
 	<!-- Authenticated 2 -->
 	
+	<bean name="ManuAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="ManuUserAccount" />
+	</bean>
+	
+	
+	<bean name="ManuUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="Manuel" />
+		<property name="password" value="Manuel" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manuel" />
+				<property name="surname" value="Rubio" />
+				<property name="email" value="manuel@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="ManuAuthenticated" />
+
+			</list>
+		</property>
+	</bean>
+	
 	
 
 	<!-- MessageThreads -->
@@ -586,6 +619,20 @@
 		<property name="tags" value="DP" />
 		<property name="body" value="Este es el cuerpo del mensaje" />
 		<property name="messageThread" ref="MessageThread1"/>
+	</bean>
+	
+	<!-- Participants -->
+	
+	<bean name="Participant1" class="acme.entities.messages.ParticipatesIn">
+		<property name="participant" ref="ManuAuthenticated"/>
+		<property name="thread" ref="MessageThread1"/>
+	</bean>
+	
+	<bean name="Requisito1" class="acme.entities.requisito.Requisito">
+		<property name="text" value="Requisito1" />
+		<property name="moreInfo" value="http://www.example.com" />
+		<property name="job" ref="job1" />
+		
 	</bean>
 
 

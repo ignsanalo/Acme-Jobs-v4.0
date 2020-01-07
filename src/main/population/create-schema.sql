@@ -26,8 +26,11 @@
     create table `application` (
        `id` integer not null,
         `version` integer not null,
+        `answer` varchar(255),
         `mandatory_justification` varchar(255),
         `moment` datetime(6),
+        `password` varchar(255),
+        `protegido` varchar(255),
         `qualifications` varchar(255),
         `reference` varchar(255),
         `skills` varchar(255),
@@ -126,6 +129,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `dashboard` (
+       `id` integer not null,
+        `version` integer not null,
+        `answer_ratio` float,
+        `jobs_ratio` float,
+        `protected_ratio` float,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `duty` (
        `id` integer not null,
         `version` integer not null,
@@ -186,12 +198,8 @@
         `version` integer not null,
         `moment` datetime(6),
         `title` varchar(255),
+        `owner_id` integer not null,
         primary key (`id`)
-    ) engine=InnoDB;
-
-    create table `message_thread_authenticated` (
-       `message_thread_id` integer not null,
-        `users_id` integer not null
     ) engine=InnoDB;
 
     create table `offer` (
@@ -206,6 +214,14 @@
         `text` varchar(255),
         `ticker` varchar(255),
         `title` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `participates_in` (
+       `id` integer not null,
+        `version` integer not null,
+        `participant_id` integer not null,
+        `thread_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -231,6 +247,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `requisito` (
+       `id` integer not null,
+        `version` integer not null,
+        `more_info` varchar(255),
+        `text` varchar(255),
+        `job_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `user_account` (
        `id` integer not null,
         `version` integer not null,
@@ -249,6 +274,15 @@
         `user_account_id` integer,
         `qualifications` varchar(255),
         `skills` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `xxxx1` (
+       `id` integer not null,
+        `version` integer not null,
+        `more_info` varchar(255),
+        `text` varchar(255),
+        `job_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -286,9 +320,15 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
     alter table `requests` 
        add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);
 
+    alter table `requisito` 
+       add constraint UK_61mus8vhxm4xdaaq7qyrfaml0 unique (`job_id`);
+
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
 create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
+
+    alter table `xxxx1` 
+       add constraint UK_i2qt665lplguvu6lvrlntdf5q unique (`job_id`);
 
     alter table `administrator` 
        add constraint FK_2a5vcjo3stlfcwadosjfq49l1 
@@ -360,14 +400,19 @@ create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
        foreign key (`message_thread_id`) 
        references `message_thread` (`id`);
 
-    alter table `message_thread_authenticated` 
-       add constraint `FKsnymblhgu3dixq3t2qhptr4x2` 
-       foreign key (`users_id`) 
+    alter table `message_thread` 
+       add constraint `FKljabur1weonvmg511atm2ql6` 
+       foreign key (`owner_id`) 
        references `authenticated` (`id`);
 
-    alter table `message_thread_authenticated` 
-       add constraint `FKjb0tx79q4dpibs3mnkp6wfqvf` 
-       foreign key (`message_thread_id`) 
+    alter table `participates_in` 
+       add constraint `FKp8dubhjpvwx0mgn144chnj2ya` 
+       foreign key (`participant_id`) 
+       references `authenticated` (`id`);
+
+    alter table `participates_in` 
+       add constraint `FKm2o4n01mrot8y5d0nu0vbio7` 
+       foreign key (`thread_id`) 
        references `message_thread` (`id`);
 
     alter table `provider` 
@@ -375,7 +420,17 @@ create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `requisito` 
+       add constraint `FKdpyv3jqwtksicvkwm7bhdswhk` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
+
     alter table `worker` 
        add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `xxxx1` 
+       add constraint `FKivqoqgqubr8hn5quyvcmi324` 
+       foreign key (`job_id`) 
+       references `job` (`id`);

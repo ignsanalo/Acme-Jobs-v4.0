@@ -18,14 +18,20 @@ employer.job.form.label.deadline = Deadline:
 employer.job.form.label.salary = Salary:
 employer.job.form.label.moreInfo = More info:
 employer.job.form.label.description = Description:
-employer.job.form.label.errorApli = Cant delete Jobs with Applications
+employer.job.form.label.errorApli = It is not possible delete jobs with applications.
+employer.job.error.mensajeRechazo = It is not possible to publish the work.
 
-employer.job.form.button.duty-list = List duties
+employer.job.form.button.requisito-list = List requisitos
 employer.application.button.list = List applications
-employer.job.form.label.finalMode=final mode
+employer.job.form.label.auditRecord= Audit records
+employer.job.form.label.finalMode= final mode
+employer.job.form.button.requisito-create= Create requisito
+employer.job.form.button.duty-list= List duties
 
 employer.job.form.button.create = Create
 employer.job.form.button.update = Update
 employer.job.form.button.delete = Delete
+employer.xxxx1.form.button.create= Create xxxx1
+employer.xxxx1.form.button.show= Create xxxx1
 
 employer.job.form.button.return = Return
