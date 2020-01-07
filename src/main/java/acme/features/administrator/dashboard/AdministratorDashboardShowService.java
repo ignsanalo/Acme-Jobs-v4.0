@@ -40,7 +40,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		Dashboard result = new Dashboard();
 
-		result.setJobsRatio(this.repository.findJobsByProblem());
+		result.setJobsRatio(this.repository.findJobsByRequisito());
 		result.setAnswerRatio(this.repository.findApplicationsByAnswer());
 		result.setProtectedRatio(this.repository.findApplicationsByPassword());
 
