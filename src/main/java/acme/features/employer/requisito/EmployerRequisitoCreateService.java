@@ -1,40 +1,39 @@
 
-package acme.features.employer.xxxx1;
+package acme.features.employer.requisito;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
+import acme.entities.requisito.Requisito;
 import acme.entities.roles.Employer;
-import acme.entities.xxxx1.XXXX1;
 import acme.features.employer.job.EmployerJobRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.components.Response;
-import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class EmployerXXXX1CreateService implements AbstractCreateService<Employer, XXXX1> {
+public class EmployerRequisitoCreateService implements AbstractCreateService<Employer, Requisito> {
 
 	@Autowired
-	EmployerXXXX1Repository	repository;
+	EmployerRequisitoRepository	repository;
 
 	@Autowired
-	EmployerJobRepository	jobRepository;
+	EmployerJobRepository		jobRepository;
 
 
 	@Override
-	public boolean authorise(final Request<XXXX1> request) {
+	public boolean authorise(final Request<Requisito> request) {
 		assert request != null;
 		return true;
 	}
 
 	@Override
-	public void bind(final Request<XXXX1> request, final XXXX1 entity, final Errors errors) {
+	public void bind(final Request<Requisito> request, final Requisito entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -43,25 +42,22 @@ public class EmployerXXXX1CreateService implements AbstractCreateService<Employe
 	}
 
 	@Override
-	public void unbind(final Request<XXXX1> request, final XXXX1 entity, final Model model) {
+	public void unbind(final Request<Requisito> request, final Requisito entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
 		request.unbind(entity, model, "text", "moreInfo");
-		model.setAttribute("jobId", entity.getJob().getId());
+		model.setAttribute("id", entity.getJob().getId());
 	}
 
 	@Override
-	public XXXX1 instantiate(final Request<XXXX1> request) {
+	public Requisito instantiate(final Request<Requisito> request) {
 		assert request != null;
 
-		XXXX1 result = new XXXX1();
-		Principal principal;
+		Requisito result = new Requisito();
 
 		int jobId;
-
-		principal = request.getPrincipal();
 
 		jobId = request.getModel().getInteger("id");
 
@@ -74,7 +70,7 @@ public class EmployerXXXX1CreateService implements AbstractCreateService<Employe
 	}
 
 	@Override
-	public void validate(final Request<XXXX1> request, final XXXX1 entity, final Errors errors) {
+	public void validate(final Request<Requisito> request, final Requisito entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -94,7 +90,7 @@ public class EmployerXXXX1CreateService implements AbstractCreateService<Employe
 	}
 
 	@Override
-	public void create(final Request<XXXX1> request, final XXXX1 entity) {
+	public void create(final Request<Requisito> request, final Requisito entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -102,7 +98,7 @@ public class EmployerXXXX1CreateService implements AbstractCreateService<Employe
 	}
 
 	@Override
-	public void onSuccess(final Request<XXXX1> request, final Response<XXXX1> response) {
+	public void onSuccess(final Request<Requisito> request, final Response<Requisito> response) {
 		assert request != null;
 		assert response != null;
 

@@ -247,6 +247,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `requisito` (
+       `id` integer not null,
+        `version` integer not null,
+        `more_info` varchar(255),
+        `text` varchar(255),
+        `job_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `user_account` (
        `id` integer not null,
         `version` integer not null,
@@ -310,6 +319,9 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
 
     alter table `requests` 
        add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);
+
+    alter table `requisito` 
+       add constraint UK_61mus8vhxm4xdaaq7qyrfaml0 unique (`job_id`);
 
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
@@ -407,6 +419,11 @@ create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `requisito` 
+       add constraint `FKdpyv3jqwtksicvkwm7bhdswhk` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
 
     alter table `worker` 
        add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 

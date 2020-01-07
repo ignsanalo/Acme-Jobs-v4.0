@@ -71,6 +71,10 @@
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
 
+    alter table `requisito` 
+       drop 
+       foreign key `FKdpyv3jqwtksicvkwm7bhdswhk`;
+
     alter table `worker` 
        drop 
        foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
@@ -124,6 +128,8 @@
     drop table if exists `provider`;
 
     drop table if exists `requests`;
+
+    drop table if exists `requisito`;
 
     drop table if exists `user_account`;
 

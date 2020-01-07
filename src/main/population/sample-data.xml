@@ -627,6 +627,13 @@
 		<property name="participant" ref="ManuAuthenticated"/>
 		<property name="thread" ref="MessageThread1"/>
 	</bean>
+	
+	<bean name="Requisito1" class="acme.entities.requisito.Requisito">
+		<property name="text" value="Requisito1" />
+		<property name="moreInfo" value="http://www.example.com" />
+		<property name="job" ref="job1" />
+		
+	</bean>
 
 
 </beans>

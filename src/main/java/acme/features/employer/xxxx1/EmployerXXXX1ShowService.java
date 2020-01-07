@@ -40,7 +40,7 @@ public class EmployerXXXX1ShowService implements AbstractShowService<Employer, X
 		int idJob;
 
 		idJob = request.getModel().getInteger("id");
-		result = this.repository.findOneById(idJob);
+		result = this.repository.findXXXX1ByJobId(idJob);
 
 		return result;
 	}
