@@ -9,7 +9,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository {
 
-	@Query("select 1.0 * count(a)/(select count(b) from Job b) from XXXX1 a ")
+	@Query("select 1.0 * count(a)/(select count(b) from Job b) from Requisito a ")
 	Float findJobsByProblem();
 
 	@Query("select 1.0 * count(a)/(select count(b) from Application b) from Application a where a.answer != '' ")
