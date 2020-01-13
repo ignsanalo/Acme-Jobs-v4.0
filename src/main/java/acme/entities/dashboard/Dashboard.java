@@ -18,6 +18,6 @@ public class Dashboard extends DomainEntity {
 
 	private Float				answerRatio;
 
-	private Float				protectedRatio;
+	private Float				keyletRatio;
 
 }

@@ -1,11 +1,11 @@
 
-package acme.features.employer.requisito;
+package acme.features.employer.busit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.busit.Busit;
 import acme.entities.jobs.Job;
-import acme.entities.requisito.Requisito;
 import acme.entities.roles.Employer;
 import acme.features.employer.job.EmployerJobRepository;
 import acme.framework.components.Errors;
@@ -17,23 +17,23 @@ import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class EmployerRequisitoCreateService implements AbstractCreateService<Employer, Requisito> {
+public class EmployerBusitCreateService implements AbstractCreateService<Employer, Busit> {
 
 	@Autowired
-	EmployerRequisitoRepository	repository;
+	EmployerBusitRepository	repository;
 
 	@Autowired
-	EmployerJobRepository		jobRepository;
+	EmployerJobRepository	jobRepository;
 
 
 	@Override
-	public boolean authorise(final Request<Requisito> request) {
+	public boolean authorise(final Request<Busit> request) {
 		assert request != null;
 		return true;
 	}
 
 	@Override
-	public void bind(final Request<Requisito> request, final Requisito entity, final Errors errors) {
+	public void bind(final Request<Busit> request, final Busit entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -42,20 +42,20 @@ public class EmployerRequisitoCreateService implements AbstractCreateService<Emp
 	}
 
 	@Override
-	public void unbind(final Request<Requisito> request, final Requisito entity, final Model model) {
+	public void unbind(final Request<Busit> request, final Busit entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "text", "moreInfo");
+		request.unbind(entity, model, "text", "keylet");
 		model.setAttribute("id", entity.getJob().getId());
 	}
 
 	@Override
-	public Requisito instantiate(final Request<Requisito> request) {
+	public Busit instantiate(final Request<Busit> request) {
 		assert request != null;
 
-		Requisito result = new Requisito();
+		Busit result = new Busit();
 
 		int jobId;
 
@@ -70,7 +70,7 @@ public class EmployerRequisitoCreateService implements AbstractCreateService<Emp
 	}
 
 	@Override
-	public void validate(final Request<Requisito> request, final Requisito entity, final Errors errors) {
+	public void validate(final Request<Busit> request, final Busit entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -90,7 +90,7 @@ public class EmployerRequisitoCreateService implements AbstractCreateService<Emp
 	}
 
 	@Override
-	public void create(final Request<Requisito> request, final Requisito entity) {
+	public void create(final Request<Busit> request, final Busit entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -98,7 +98,7 @@ public class EmployerRequisitoCreateService implements AbstractCreateService<Emp
 	}
 
 	@Override
-	public void onSuccess(final Request<Requisito> request, final Response<Requisito> response) {
+	public void onSuccess(final Request<Busit> request, final Response<Busit> response) {
 		assert request != null;
 		assert response != null;
 

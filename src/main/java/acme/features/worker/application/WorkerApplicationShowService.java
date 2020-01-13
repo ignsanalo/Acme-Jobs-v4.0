@@ -43,7 +43,7 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "mandatoryJustification", "answer", "password", "protegido");
+		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "mandatoryJustification", "answer", "password", "keylet");
 
 	}
 
@@ -59,6 +59,5 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 
 		return result;
 	}
-	//ags
 
 }

@@ -19,6 +19,8 @@ worker.job.form.label.salary = Salary:
 worker.job.form.label.moreInfo = More info:
 worker.job.form.label.description = Description:
 
+worker.job.form.button.busit-list = List busits
+
 worker.job.application.form.button.apply = Create application
 
 

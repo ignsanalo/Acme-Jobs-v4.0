@@ -11,12 +11,12 @@
 
 <tiles-definitions>
 
-	<definition name="worker/requisito/form" extends="master">
-		<put-attribute name="body" type="template" value="../worker/requisito/form.jsp" />
+	<definition name="worker/busit/form" extends="master">
+		<put-attribute name="body" type="template" value="../worker/busit/form.jsp" />
 	</definition>
 
-	<definition name="worker/requisito/list" extends="master">
-		<put-attribute name="body" type="template" value="../worker/requisito/list.jsp" />
+	<definition name="worker/busit/list" extends="master">
+		<put-attribute name="body" type="template" value="../worker/busit/list.jsp" />
 	</definition>
 
 </tiles-definitions>

@@ -6,6 +6,6 @@
 <acme:form>
 	<acme:form-double code="administrator.dashboard.form.jobsRatio" path="jobsRatio"/>
 	<acme:form-double code="administrator.dashboard.form.answerRatio" path="answerRatio"/>
-	<acme:form-double code="administrator.dashboard.form.protectedRatio" path="protectedRatio"/>
+	<acme:form-double code="administrator.dashboard.form.keyletRatio" path="keyletRatio"/>
 	<acme:form-return code="administrator.dashboard.form.button.return" />
 </acme:form>

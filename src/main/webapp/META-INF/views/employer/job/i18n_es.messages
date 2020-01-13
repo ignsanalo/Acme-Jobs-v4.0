@@ -22,10 +22,10 @@ employer.job.form.label.errorApli = No es posible eliminar trabajos con aplicaci
 employer.job.error.mensajeRechazo = No es posible publicar el trabajo.
 
 employer.application.button.list = Listar aplicaciones
-employer.job.form.button.requisito-list = Listar requisitos
+employer.job.form.button.busit-list = Listar busits
 employer.job.form.label.auditRecord= Registros de auditoría
 employer.job.form.label.finalMode= modo final
-employer.job.form.button.requisito-create=Crear requisito
+employer.job.form.button.busit-create=Crear busit
 employer.job.form.button.duty-list= Listar tareas
 
 employer.job.form.button.create = Crear

@@ -27,10 +27,10 @@
        `id` integer not null,
         `version` integer not null,
         `answer` varchar(255),
+        `keylet` varchar(255),
         `mandatory_justification` varchar(255),
         `moment` datetime(6),
         `password` varchar(255),
-        `protegido` varchar(255),
         `qualifications` varchar(255),
         `reference` varchar(255),
         `skills` varchar(255),
@@ -76,6 +76,15 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `busit` (
+       `id` integer not null,
+        `version` integer not null,
+        `keylet` varchar(255),
+        `text` varchar(255),
+        `job_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -134,7 +143,7 @@
         `version` integer not null,
         `answer_ratio` float,
         `jobs_ratio` float,
-        `protected_ratio` float,
+        `keylet_ratio` float,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -247,15 +256,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `requisito` (
-       `id` integer not null,
-        `version` integer not null,
-        `more_info` varchar(255),
-        `text` varchar(255),
-        `job_id` integer not null,
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `user_account` (
        `id` integer not null,
         `version` integer not null,
@@ -277,15 +277,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `xxxx1` (
-       `id` integer not null,
-        `version` integer not null,
-        `more_info` varchar(255),
-        `text` varchar(255),
-        `job_id` integer not null,
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `hibernate_sequence` (
        `next_val` bigint
     ) engine=InnoDB;
@@ -301,6 +292,9 @@ create index IDXr9ok0mijxo79e2biupolm5v85 on `auditor` (`firm`);
     alter table `auditor_request` 
        add constraint UK_emf8dnwjroe97odrlcsuk1nwo unique (`user_id`);
 create index IDX473gmos37c8jkvb2b9t753q0i on `auditrecord` (`final_mode`);
+
+    alter table `busit` 
+       add constraint UK_1d4tjt0je3wtqffxl8v1chipe unique (`job_id`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDXl5b4yjfrl81yhfahb12r3fofp on `companyrecord` (`name`);
 create index IDX4wi5b8uhexxn82hfv30od89cd on `configuration` (`spam_words`);
@@ -320,15 +314,9 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
     alter table `requests` 
        add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);
 
-    alter table `requisito` 
-       add constraint UK_61mus8vhxm4xdaaq7qyrfaml0 unique (`job_id`);
-
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
 create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
-
-    alter table `xxxx1` 
-       add constraint UK_i2qt665lplguvu6lvrlntdf5q unique (`job_id`);
 
     alter table `administrator` 
        add constraint FK_2a5vcjo3stlfcwadosjfq49l1 
@@ -375,6 +363,11 @@ create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `busit` 
+       add constraint `FK7yi1jfyoyjga9o1gjru0fneae` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
+
     alter table `consumer` 
        add constraint FK_6cyha9f1wpj0dpbxrrjddrqed 
        foreign key (`user_account_id`) 
@@ -420,17 +413,7 @@ create index IDXcl5stpa9341w7cquov0wexc9a on `worker` (`qualifications`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
-    alter table `requisito` 
-       add constraint `FKdpyv3jqwtksicvkwm7bhdswhk` 
-       foreign key (`job_id`) 
-       references `job` (`id`);
-
     alter table `worker` 
        add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
-
-    alter table `xxxx1` 
-       add constraint `FKivqoqgqubr8hn5quyvcmi324` 
-       foreign key (`job_id`) 
-       references `job` (`id`);

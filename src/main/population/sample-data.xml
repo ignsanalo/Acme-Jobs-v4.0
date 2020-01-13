@@ -341,8 +341,8 @@
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
 		<property name="answer" value="this is an answer" />
-		<property name="password" value="Abc123.,:" />
-		<property name="protegido" value="Protected" />
+		<property name="password" value="Abc1234fres.,:" />
+		<property name="keylet" value="Protected" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job1" />
 	</bean>
@@ -356,8 +356,8 @@
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
 		<property name="answer" value="this is an answer" />
-		<property name="password" value="ABCD123.,-" />
-		<property name="protegido" value="Protected" />
+		<property name="password" value="ABCD123dje.,-" />
+		<property name="keylet" value="Protected" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job1" />		
 	</bean>
@@ -371,8 +371,8 @@
 		<property name="qualifications" value="Good application" />
 		<property name="mandatoryJustification" value="" />
 		<property name="answer" value="this is an answer" />
-		<property name="password" value="ABc567..." />
-		<property name="protegido" value="Protected" />
+		<property name="password" value="ABc567def.." />
+		<property name="keylet" value="Protected" />
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job2" />
 	</bean>
@@ -628,9 +628,9 @@
 		<property name="thread" ref="MessageThread1"/>
 	</bean>
 	
-	<bean name="Requisito1" class="acme.entities.requisito.Requisito">
+	<bean name="Busit1" class="acme.entities.busit.Busit">
 		<property name="text" value="Requisito1" />
-		<property name="moreInfo" value="http://www.example.com" />
+		<property name="keylet" value="http://www.example.com" />
 		<property name="job" ref="job1" />
 		
 	</bean>

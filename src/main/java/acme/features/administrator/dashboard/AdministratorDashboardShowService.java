@@ -30,7 +30,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "jobsRatio", "answerRatio", "protectedRatio");
+		request.unbind(entity, model, "jobsRatio", "answerRatio", "keyletRatio");
 
 	}
 
@@ -40,9 +40,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		Dashboard result = new Dashboard();
 
-		result.setJobsRatio(this.repository.findJobsByRequisito());
+		result.setJobsRatio(this.repository.findJobsByBusit());
 		result.setAnswerRatio(this.repository.findApplicationsByAnswer());
-		result.setProtectedRatio(this.repository.findApplicationsByPassword());
+		result.setKeyletRatio(this.repository.findApplicationsByPassword());
 
 		return result;
 	}

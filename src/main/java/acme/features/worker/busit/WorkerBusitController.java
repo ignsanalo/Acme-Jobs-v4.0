@@ -1,5 +1,5 @@
 
-package acme.features.employer.requisito;
+package acme.features.worker.busit;
 
 import javax.annotation.PostConstruct;
 
@@ -8,25 +8,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.components.CustomCommand;
-import acme.entities.requisito.Requisito;
-import acme.entities.roles.Employer;
+import acme.entities.busit.Busit;
+import acme.entities.roles.Worker;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/employer/requisito/")
-public class EmployerRequisitoController extends AbstractController<Employer, Requisito> {
+@RequestMapping("/worker/busit/")
+public class WorkerBusitController extends AbstractController<Worker, Busit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private EmployerRequisitoShowService		showService;
+	private WorkerBusitShowService		showService;
 
 	@Autowired
-	private EmployerRequisitoListByJobService	listService;
-
-	@Autowired
-	private EmployerRequisitoCreateService		createService;
+	private WorkerBusitListByJobService	listService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -34,7 +31,6 @@ public class EmployerRequisitoController extends AbstractController<Employer, Re
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addCustomCommand(CustomCommand.LIST_BY_JOB, BasicCommand.LIST, this.listService);
-		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 
 }

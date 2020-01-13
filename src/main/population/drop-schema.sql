@@ -35,6 +35,10 @@
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
 
+    alter table `busit` 
+       drop 
+       foreign key `FK7yi1jfyoyjga9o1gjru0fneae`;
+
     alter table `consumer` 
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
@@ -71,17 +75,9 @@
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
 
-    alter table `requisito` 
-       drop 
-       foreign key `FKdpyv3jqwtksicvkwm7bhdswhk`;
-
     alter table `worker` 
        drop 
        foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
-
-    alter table `xxxx1` 
-       drop 
-       foreign key `FKivqoqgqubr8hn5quyvcmi324`;
 
     drop table if exists `administrator`;
 
@@ -98,6 +94,8 @@
     drop table if exists `auditrecord`;
 
     drop table if exists `authenticated`;
+
+    drop table if exists `busit`;
 
     drop table if exists `challenge`;
 
@@ -129,12 +127,8 @@
 
     drop table if exists `requests`;
 
-    drop table if exists `requisito`;
-
     drop table if exists `user_account`;
 
     drop table if exists `worker`;
-
-    drop table if exists `xxxx1`;
 
     drop table if exists `hibernate_sequence`;

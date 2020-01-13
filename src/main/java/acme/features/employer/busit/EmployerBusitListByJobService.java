@@ -1,46 +1,46 @@
 
-package acme.features.employer.requisito;
+package acme.features.employer.busit;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.requisito.Requisito;
+import acme.entities.busit.Busit;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class EmployerRequisitoListByJobService implements AbstractListService<Employer, Requisito> {
+public class EmployerBusitListByJobService implements AbstractListService<Employer, Busit> {
 
 	@Autowired
-	EmployerRequisitoRepository repository;
+	EmployerBusitRepository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Requisito> request) {
+	public boolean authorise(final Request<Busit> request) {
 		assert request != null;
 		return true;
 	}
 
 	@Override
-	public void unbind(final Request<Requisito> request, final Requisito entity, final Model model) {
+	public void unbind(final Request<Busit> request, final Busit entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "text", "moreInfo");
+		request.unbind(entity, model, "text", "keylet");
 
 	}
 
 	@Override
-	public Collection<Requisito> findMany(final Request<Requisito> request) {
+	public Collection<Busit> findMany(final Request<Busit> request) {
 
 		assert request != null;
 
-		Collection<Requisito> result;
+		Collection<Busit> result;
 		Integer idJob;
 
 		idJob = request.getModel().getInteger("id");

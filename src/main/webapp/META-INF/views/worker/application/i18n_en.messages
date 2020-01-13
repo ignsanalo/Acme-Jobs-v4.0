@@ -17,7 +17,7 @@ worker.application.form.label.qualifications = Qualifications:
 worker.application.form.label.mandatoryJustification = Justification:
 worker.application.form.label.answer = Answer:
 worker.application.form.label.password = Password:
-worker.application.form.label.protegido = Protected:
+worker.application.form.label.keylet = Keylet:
 
 worker.application.error.referenceFormat = Reference format must be: EMPX-JOBX:WORX
 

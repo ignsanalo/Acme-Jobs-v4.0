@@ -21,11 +21,11 @@ employer.job.form.label.description = Description:
 employer.job.form.label.errorApli = It is not possible delete jobs with applications.
 employer.job.error.mensajeRechazo = It is not possible to publish the work.
 
-employer.job.form.button.requisito-list = List requisitos
+employer.job.form.button.busit-list = List busits
 employer.application.button.list = List applications
 employer.job.form.label.auditRecord= Audit records
 employer.job.form.label.finalMode= final mode
-employer.job.form.button.requisito-create= Create requisito
+employer.job.form.button.busit-create= Create busit
 employer.job.form.button.duty-list= List duties
 
 employer.job.form.button.create = Create

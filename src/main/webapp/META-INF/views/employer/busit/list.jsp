@@ -4,6 +4,6 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="employer.requisito.list.label.text" path="text" width="80%"/>
+	<acme:list-column code="employer.busit.list.label.text" path="text" width="80%"/>
 	
 </acme:list>
